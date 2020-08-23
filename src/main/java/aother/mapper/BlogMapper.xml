@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiangjiawei.dao.BlogMapper" >
+  <resultMap id="BaseResultMap" type="aother.pojo.Blog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
+    <result column="column_id" property="columnId" jdbcType="INTEGER" />
+    <result column="views" property="views" jdbcType="INTEGER" />
+    <result column="tags" property="tags" jdbcType="VARCHAR" />
+    <result column="comments" property="comments" jdbcType="VARCHAR" />
+    <result column="blog_img" property="blogImg" jdbcType="VARCHAR" />
+    <result column="blog_state" property="blogState" jdbcType="TINYINT" />
+    <result column="admire_state" property="admireState" jdbcType="TINYINT" />
+    <result column="comment_state" property="commentState" jdbcType="TINYINT" />
+    <result column="recommend_state" property="recommendState" jdbcType="TINYINT" />
+    <result column="reprint_state" property="reprintState" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="aother.pojo.Blog" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, title, summary, publish_date, column_id, views, tags, comments, blog_img, blog_state, 
+    admire_state, comment_state, recommend_state, reprint_state, create_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="aother.pojo.BlogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="aother.pojo.BlogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blog
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="aother.pojo.BlogExample" >
+    delete from blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="aother.pojo.Blog" >
+    insert into blog (id, title, summary, 
+      publish_date, column_id, views, 
+      tags, comments, blog_img, 
+      blog_state, admire_state, comment_state, 
+      recommend_state, reprint_state, create_time, 
+      content)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{publishDate,jdbcType=TIMESTAMP}, #{columnId,jdbcType=INTEGER}, #{views,jdbcType=INTEGER}, 
+      #{tags,jdbcType=VARCHAR}, #{comments,jdbcType=VARCHAR}, #{blogImg,jdbcType=VARCHAR}, 
+      #{blogState,jdbcType=TINYINT}, #{admireState,jdbcType=TINYINT}, #{commentState,jdbcType=TINYINT}, 
+      #{recommendState,jdbcType=TINYINT}, #{reprintState,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="aother.pojo.Blog" >
+    insert into blog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="summary != null" >
+        summary,
+      </if>
+      <if test="publishDate != null" >
+        publish_date,
+      </if>
+      <if test="columnId != null" >
+        column_id,
+      </if>
+      <if test="views != null" >
+        views,
+      </if>
+      <if test="tags != null" >
+        tags,
+      </if>
+      <if test="comments != null" >
+        comments,
+      </if>
+      <if test="blogImg != null" >
+        blog_img,
+      </if>
+      <if test="blogState != null" >
+        blog_state,
+      </if>
+      <if test="admireState != null" >
+        admire_state,
+      </if>
+      <if test="commentState != null" >
+        comment_state,
+      </if>
+      <if test="recommendState != null" >
+        recommend_state,
+      </if>
+      <if test="reprintState != null" >
+        reprint_state,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null" >
+        #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="columnId != null" >
+        #{columnId,jdbcType=INTEGER},
+      </if>
+      <if test="views != null" >
+        #{views,jdbcType=INTEGER},
+      </if>
+      <if test="tags != null" >
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null" >
+        #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="blogImg != null" >
+        #{blogImg,jdbcType=VARCHAR},
+      </if>
+      <if test="blogState != null" >
+        #{blogState,jdbcType=TINYINT},
+      </if>
+      <if test="admireState != null" >
+        #{admireState,jdbcType=TINYINT},
+      </if>
+      <if test="commentState != null" >
+        #{commentState,jdbcType=TINYINT},
+      </if>
+      <if test="recommendState != null" >
+        #{recommendState,jdbcType=TINYINT},
+      </if>
+      <if test="reprintState != null" >
+        #{reprintState,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="aother.pojo.BlogExample" resultType="java.lang.Integer" >
+    select count(*) from blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update blog
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summary != null" >
+        summary = #{record.summary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishDate != null" >
+        publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.columnId != null" >
+        column_id = #{record.columnId,jdbcType=INTEGER},
+      </if>
+      <if test="record.views != null" >
+        views = #{record.views,jdbcType=INTEGER},
+      </if>
+      <if test="record.tags != null" >
+        tags = #{record.tags,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comments != null" >
+        comments = #{record.comments,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogImg != null" >
+        blog_img = #{record.blogImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogState != null" >
+        blog_state = #{record.blogState,jdbcType=TINYINT},
+      </if>
+      <if test="record.admireState != null" >
+        admire_state = #{record.admireState,jdbcType=TINYINT},
+      </if>
+      <if test="record.commentState != null" >
+        comment_state = #{record.commentState,jdbcType=TINYINT},
+      </if>
+      <if test="record.recommendState != null" >
+        recommend_state = #{record.recommendState,jdbcType=TINYINT},
+      </if>
+      <if test="record.reprintState != null" >
+        reprint_state = #{record.reprintState,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update blog
+    set id = #{record.id,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
+      publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      column_id = #{record.columnId,jdbcType=INTEGER},
+      views = #{record.views,jdbcType=INTEGER},
+      tags = #{record.tags,jdbcType=VARCHAR},
+      comments = #{record.comments,jdbcType=VARCHAR},
+      blog_img = #{record.blogImg,jdbcType=VARCHAR},
+      blog_state = #{record.blogState,jdbcType=TINYINT},
+      admire_state = #{record.admireState,jdbcType=TINYINT},
+      comment_state = #{record.commentState,jdbcType=TINYINT},
+      recommend_state = #{record.recommendState,jdbcType=TINYINT},
+      reprint_state = #{record.reprintState,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      content = #{record.content,jdbcType=LONGVARBINARY}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update blog
+    set id = #{record.id,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
+      publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      column_id = #{record.columnId,jdbcType=INTEGER},
+      views = #{record.views,jdbcType=INTEGER},
+      tags = #{record.tags,jdbcType=VARCHAR},
+      comments = #{record.comments,jdbcType=VARCHAR},
+      blog_img = #{record.blogImg,jdbcType=VARCHAR},
+      blog_state = #{record.blogState,jdbcType=TINYINT},
+      admire_state = #{record.admireState,jdbcType=TINYINT},
+      comment_state = #{record.commentState,jdbcType=TINYINT},
+      recommend_state = #{record.recommendState,jdbcType=TINYINT},
+      reprint_state = #{record.reprintState,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="aother.pojo.Blog" >
+    update blog
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null" >
+        publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="columnId != null" >
+        column_id = #{columnId,jdbcType=INTEGER},
+      </if>
+      <if test="views != null" >
+        views = #{views,jdbcType=INTEGER},
+      </if>
+      <if test="tags != null" >
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null" >
+        comments = #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="blogImg != null" >
+        blog_img = #{blogImg,jdbcType=VARCHAR},
+      </if>
+      <if test="blogState != null" >
+        blog_state = #{blogState,jdbcType=TINYINT},
+      </if>
+      <if test="admireState != null" >
+        admire_state = #{admireState,jdbcType=TINYINT},
+      </if>
+      <if test="commentState != null" >
+        comment_state = #{commentState,jdbcType=TINYINT},
+      </if>
+      <if test="recommendState != null" >
+        recommend_state = #{recommendState,jdbcType=TINYINT},
+      </if>
+      <if test="reprintState != null" >
+        reprint_state = #{reprintState,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="aother.pojo.Blog" >
+    update blog
+    set title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      column_id = #{columnId,jdbcType=INTEGER},
+      views = #{views,jdbcType=INTEGER},
+      tags = #{tags,jdbcType=VARCHAR},
+      comments = #{comments,jdbcType=VARCHAR},
+      blog_img = #{blogImg,jdbcType=VARCHAR},
+      blog_state = #{blogState,jdbcType=TINYINT},
+      admire_state = #{admireState,jdbcType=TINYINT},
+      comment_state = #{commentState,jdbcType=TINYINT},
+      recommend_state = #{recommendState,jdbcType=TINYINT},
+      reprint_state = #{reprintState,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=LONGVARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="aother.pojo.Blog" >
+    update blog
+    set title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      column_id = #{columnId,jdbcType=INTEGER},
+      views = #{views,jdbcType=INTEGER},
+      tags = #{tags,jdbcType=VARCHAR},
+      comments = #{comments,jdbcType=VARCHAR},
+      blog_img = #{blogImg,jdbcType=VARCHAR},
+      blog_state = #{blogState,jdbcType=TINYINT},
+      admire_state = #{admireState,jdbcType=TINYINT},
+      comment_state = #{commentState,jdbcType=TINYINT},
+      recommend_state = #{recommendState,jdbcType=TINYINT},
+      reprint_state = #{reprintState,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

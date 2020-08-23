@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiangjiawei.dao.CommentMapper" >
+  <resultMap id="BaseResultMap" type="aother.pojo.Comment" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="reply_name" property="replyName" jdbcType="VARCHAR" />
+    <result column="reply_email" property="replyEmail" jdbcType="VARCHAR" />
+    <result column="blog_id" property="blogId" jdbcType="INTEGER" />
+    <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
+    <result column="blogger_state" property="bloggerState" jdbcType="CHAR" />
+    <result column="reply_state" property="replyState" jdbcType="CHAR" />
+    <result column="reply_content" property="replyContent" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, reply_name, reply_email, blog_id, publish_date, blogger_state, reply_state, reply_content, 
+    parent_id, create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="aother.pojo.CommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="aother.pojo.CommentExample" >
+    delete from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="aother.pojo.Comment" >
+    insert into comment (id, reply_name, reply_email, 
+      blog_id, publish_date, blogger_state, 
+      reply_state, reply_content, parent_id, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{replyName,jdbcType=VARCHAR}, #{replyEmail,jdbcType=VARCHAR}, 
+      #{blogId,jdbcType=INTEGER}, #{publishDate,jdbcType=TIMESTAMP}, #{bloggerState,jdbcType=CHAR}, 
+      #{replyState,jdbcType=CHAR}, #{replyContent,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="aother.pojo.Comment" >
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="replyName != null" >
+        reply_name,
+      </if>
+      <if test="replyEmail != null" >
+        reply_email,
+      </if>
+      <if test="blogId != null" >
+        blog_id,
+      </if>
+      <if test="publishDate != null" >
+        publish_date,
+      </if>
+      <if test="bloggerState != null" >
+        blogger_state,
+      </if>
+      <if test="replyState != null" >
+        reply_state,
+      </if>
+      <if test="replyContent != null" >
+        reply_content,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="replyName != null" >
+        #{replyName,jdbcType=VARCHAR},
+      </if>
+      <if test="replyEmail != null" >
+        #{replyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="blogId != null" >
+        #{blogId,jdbcType=INTEGER},
+      </if>
+      <if test="publishDate != null" >
+        #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bloggerState != null" >
+        #{bloggerState,jdbcType=CHAR},
+      </if>
+      <if test="replyState != null" >
+        #{replyState,jdbcType=CHAR},
+      </if>
+      <if test="replyContent != null" >
+        #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="aother.pojo.CommentExample" resultType="java.lang.Integer" >
+    select count(*) from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update comment
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.replyName != null" >
+        reply_name = #{record.replyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyEmail != null" >
+        reply_email = #{record.replyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogId != null" >
+        blog_id = #{record.blogId,jdbcType=INTEGER},
+      </if>
+      <if test="record.publishDate != null" >
+        publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bloggerState != null" >
+        blogger_state = #{record.bloggerState,jdbcType=CHAR},
+      </if>
+      <if test="record.replyState != null" >
+        reply_state = #{record.replyState,jdbcType=CHAR},
+      </if>
+      <if test="record.replyContent != null" >
+        reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update comment
+    set id = #{record.id,jdbcType=INTEGER},
+      reply_name = #{record.replyName,jdbcType=VARCHAR},
+      reply_email = #{record.replyEmail,jdbcType=VARCHAR},
+      blog_id = #{record.blogId,jdbcType=INTEGER},
+      publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
+      blogger_state = #{record.bloggerState,jdbcType=CHAR},
+      reply_state = #{record.replyState,jdbcType=CHAR},
+      reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="aother.pojo.Comment" >
+    update comment
+    <set >
+      <if test="replyName != null" >
+        reply_name = #{replyName,jdbcType=VARCHAR},
+      </if>
+      <if test="replyEmail != null" >
+        reply_email = #{replyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="blogId != null" >
+        blog_id = #{blogId,jdbcType=INTEGER},
+      </if>
+      <if test="publishDate != null" >
+        publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bloggerState != null" >
+        blogger_state = #{bloggerState,jdbcType=CHAR},
+      </if>
+      <if test="replyState != null" >
+        reply_state = #{replyState,jdbcType=CHAR},
+      </if>
+      <if test="replyContent != null" >
+        reply_content = #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="aother.pojo.Comment" >
+    update comment
+    set reply_name = #{replyName,jdbcType=VARCHAR},
+      reply_email = #{replyEmail,jdbcType=VARCHAR},
+      blog_id = #{blogId,jdbcType=INTEGER},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
+      blogger_state = #{bloggerState,jdbcType=CHAR},
+      reply_state = #{replyState,jdbcType=CHAR},
+      reply_content = #{replyContent,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

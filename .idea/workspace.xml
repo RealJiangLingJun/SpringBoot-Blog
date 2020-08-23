@@ -1,11 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b13fa77e-ecac-4560-b203-907ddf10a62b" name="Default Changelist" comment="" />
+    <list default="true" id="b13fa77e-ecac-4560-b203-907ddf10a62b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/dao/BlogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/dao/ColumnistMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/dao/CommentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/dao/TagMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/dao/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/mapper/BlogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/mapper/ColumnistMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/mapper/CommentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/mapper/TagMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/BlogExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/Columnist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/ColumnistExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/CommentExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/TagExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/aother/pojo/UserExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/blogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/columnistMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/commentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/tagMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/userMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/domain/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/domain/Columnist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/domain/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/domain/Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/generator/generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jiangjiawei/dao/UserDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/SpringBootBlogApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/SpringBootBlogApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jiangjiawei/SpringBootBlogApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/SpringBootBlogApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jiangjiawei/SpringBootBlogApplicationTests.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="springbootblog@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="springbootblog@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="springbootblog@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="springbootblog: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="springbootblog@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="springbootblog: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="blog: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,30 +112,61 @@
     </option>
   </component>
   <component name="ProjectId" id="1gOqHHJINmAMfvYeTiT7plyDOjx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.153125" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ideaprojects\" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources" />
+      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\java\com\jiangjiawei\dao" />
+      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\java\com\jiangjiawei\domain" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserDaoTest.test_FindUserByCondition">
+    <configuration name="UserDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot-Blog" />
+      <option name="PACKAGE_NAME" value="com.jiangjiawei.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.jiangjiawei.dao.UserDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDaoTest.test_FindUserByCondition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot-Blog" />
+      <option name="PACKAGE_NAME" value="com.jiangjiawei.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.jiangjiawei.dao.UserDaoTest" />
+      <option name="METHOD_NAME" value="test_FindUserByCondition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringBootBlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="SpringBoot-Blog" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiangjiawei.SpringBootBlogApplication" />
@@ -55,6 +174,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserDaoTest.test_FindUserByCondition" />
+        <item itemvalue="JUnit.UserDaoTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -88,70 +213,103 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="基于SpringBoot的个人博客项目。" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="基于SpringBoot的个人博客项目（可运行）。" />
-    <option name="LAST_COMMIT_MESSAGE" value="基于SpringBoot的个人博客项目（可运行）。" />
+    <MESSAGE value="基于SpringBoot的个人博客项目。" />
+    <option name="LAST_COMMIT_MESSAGE" value="基于SpringBoot的个人博客项目。" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="37" key="CommitChangelistDialog2" timestamp="1598003340023">
+    <state x="552" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598104388254">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="37" key="CommitChangelistDialog2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003340023" />
-    <state x="693" y="206" key="FileChooserDialogImpl" timestamp="1598003272209">
+    <state x="552" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598104388254" />
+    <state x="676" y="145" key="#com.intellij.ide.util.MemberChooser" timestamp="1598168205752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="206" key="FileChooserDialogImpl/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003272209" />
-    <state width="1865" height="457" key="GridCell.Tab.0.bottom" timestamp="1598002477468">
+    <state x="676" y="145" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168205752" />
+    <state x="551" y="416" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598106270246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477468" />
-    <state width="1865" height="457" key="GridCell.Tab.0.center" timestamp="1598002477468">
+    <state x="551" y="416" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598106270246" />
+    <state x="708" y="376" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1598106257846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477468" />
-    <state width="1865" height="457" key="GridCell.Tab.0.left" timestamp="1598002477467">
+    <state x="708" y="376" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598106257846" />
+    <state x="627" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598106225893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477467" />
-    <state width="1865" height="457" key="GridCell.Tab.0.right" timestamp="1598002477468">
+    <state x="627" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598106225893" />
+    <state x="413" y="37" key="CommitChangelistDialog2" timestamp="1598003457276">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477468" />
-    <state width="1865" height="457" key="GridCell.Tab.1.bottom" timestamp="1598002477468">
+    <state x="413" y="37" key="CommitChangelistDialog2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003457276" />
+    <state x="693" y="206" key="FileChooserDialogImpl" timestamp="1598167160927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477468" />
-    <state width="1865" height="457" key="GridCell.Tab.1.center" timestamp="1598002477468">
+    <state x="693" y="206" key="FileChooserDialogImpl/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598167160927" />
+    <state width="1865" height="492" key="GridCell.Tab.0.bottom" timestamp="1598168238442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.1.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477468" />
-    <state width="1865" height="457" key="GridCell.Tab.1.left" timestamp="1598002477468">
+    <state width="1865" height="492" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168238442" />
+    <state width="1865" height="492" key="GridCell.Tab.0.center" timestamp="1598168238442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.1.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477468" />
-    <state width="1865" height="457" key="GridCell.Tab.1.right" timestamp="1598002477468">
+    <state width="1865" height="492" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168238442" />
+    <state width="1865" height="492" key="GridCell.Tab.0.left" timestamp="1598168238442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="457" key="GridCell.Tab.1.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002477468" />
-    <state x="345" y="74" key="SettingsEditor" timestamp="1598003407982">
+    <state width="1865" height="492" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168238442" />
+    <state width="1865" height="492" key="GridCell.Tab.0.right" timestamp="1598168238442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="345" y="74" key="SettingsEditor/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003407982" />
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1598003344765">
+    <state width="1865" height="492" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168238442" />
+    <state width="1865" height="340" key="GridCell.Tab.1.bottom" timestamp="1598168155620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003344765" />
+    <state width="1865" height="340" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168155620" />
+    <state width="1865" height="340" key="GridCell.Tab.1.center" timestamp="1598168155620">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="340" key="GridCell.Tab.1.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168155620" />
+    <state width="1865" height="340" key="GridCell.Tab.1.left" timestamp="1598168155620">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="340" key="GridCell.Tab.1.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168155620" />
+    <state width="1865" height="340" key="GridCell.Tab.1.right" timestamp="1598168155620">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="340" key="GridCell.Tab.1.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168155620" />
+    <state x="345" y="0" key="SettingsEditor" timestamp="1598166350362">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="345" y="0" key="SettingsEditor/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598166350362" />
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1598003559583">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003559583" />
+    <state x="733" y="281" key="chooseDestDirectoryDialog" timestamp="1598104464177">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="733" y="281" key="chooseDestDirectoryDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598104464177" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1598003333650">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003333650" />
-    <state x="577" y="297" key="com.intellij.ide.util.TipDialog" timestamp="1598002532392">
+    <state x="577" y="297" key="com.intellij.ide.util.TipDialog" timestamp="1598153896205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="577" y="297" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598002532392" />
-    <state x="161" y="192" key="new project wizard" timestamp="1598000965304">
+    <state x="577" y="297" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598153896205" />
+    <state x="391" y="56" width="1271" height="844" key="new project wizard" timestamp="1598064440403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="161" y="192" key="new project wizard/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598000965304" />
+    <state x="391" y="56" width="1271" height="844" key="new project wizard/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598064440403" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1598166255023">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598166255023" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1598166250956">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598166250956" />
   </component>
 </project>
