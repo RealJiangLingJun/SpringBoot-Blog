@@ -70,7 +70,7 @@
     </select>
     
     <!-- 插入数据 -->
-    <insert id="insertUser" parameterType="map">
+    <insert id="insertUser" parameterType="com.jiangjiawei.domain.User">
         INSERT INTO user (
             id, emial, name, password, icon, admin, create_time, sex
         ) VALUES (
@@ -86,7 +86,7 @@
     </insert>
     
     <!-- 修改数据 -->
-    <update id="updateUser" parameterType="map">
+    <update id="updateUser" parameterType="com.jiangjiawei.domain.User">
         UPDATE user
         <set>
             <if test="emial != null">

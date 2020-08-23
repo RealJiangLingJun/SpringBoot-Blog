@@ -118,7 +118,8 @@
     </dependencies>
 
     <build>
-        <!--处理打包问题-->
+        <!--处理打包问题，解决项目在打包时没有将mapper.xml文件打包到项目中-->
+        <!--指定src/main/java 目录下的全部xml文件都打包到jar包中-->
         <resources>
             <resource>
             <directory>src/main/java</directory>

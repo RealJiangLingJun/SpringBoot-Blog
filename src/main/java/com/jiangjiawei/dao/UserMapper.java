@@ -22,7 +22,8 @@ public interface UserMapper {
     //添加用户
     void insertUser(User user);
 
-
+    //修改用户信息
+    void updateUser(Map<String,Object> map);
 
 
 }

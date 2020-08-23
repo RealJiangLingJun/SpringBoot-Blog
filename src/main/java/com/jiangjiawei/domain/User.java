@@ -1,5 +1,7 @@
 package com.jiangjiawei.domain;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Date;
 
 /**
@@ -8,6 +10,8 @@ import java.util.Date;
  * @author jjw
  * @version 1.0.0 2020-08-22
  */
+
+@AllArgsConstructor
 public class User implements java.io.Serializable {
     /** 版本号 */
     private static final long serialVersionUID = -6408962860089881730L;
