@@ -661,7 +661,8 @@
     <MESSAGE value="基于SpringBoot的个人博客项目（可运行）。" />
     <MESSAGE value="基于SpringBoot的个人博客项目。" />
     <MESSAGE value="个人博客项目第二节课版本。&#10;1.完成项目搭建，启动项目&#10;2.初步测试Mapper、dao功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="个人博客项目第二节课版本。&#10;1.完成项目搭建，启动项目&#10;2.初步测试Mapper、dao功能" />
+    <MESSAGE value="个人博客项目第三节课版本。&#10;1.对之前写好的dao层进行单元测试，通过&#10;2.引入项目首页，并调试，分析" />
+    <option name="LAST_COMMIT_MESSAGE" value="个人博客项目第三节课版本。&#10;1.对之前写好的dao层进行单元测试，通过&#10;2.引入项目首页，并调试，分析" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598104388254">
@@ -684,10 +685,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="627" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598106225893" />
-    <state x="413" y="37" key="CommitChangelistDialog2" timestamp="1598168586530">
+    <state x="413" y="8" key="CommitChangelistDialog2" timestamp="1598193627249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="37" key="CommitChangelistDialog2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168586530" />
+    <state x="413" y="8" key="CommitChangelistDialog2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598193627249" />
     <state x="693" y="206" key="FileChooserDialogImpl" timestamp="1598167160927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -728,10 +729,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="345" y="0" key="SettingsEditor/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598166350362" />
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1598168591645">
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1598193640824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598168591645" />
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598193640824" />
     <state x="733" y="281" key="chooseDestDirectoryDialog" timestamp="1598104464177">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
