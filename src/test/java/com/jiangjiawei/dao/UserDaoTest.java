@@ -20,8 +20,8 @@ public class UserDaoTest {
     @Test
     public void test_FindUserByCondition(){
         Map<String,Object> map = new HashMap<>();
-        List<User> userList = userMapper.findUserByCondition(map);
-        System.out.println(userList.get(0).toString());
+        User user = userMapper.findUserByCondition(map);
+        System.out.println(user);
     }
 
 }

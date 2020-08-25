@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--移动端的预览设置，用于适配移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/Semantic-UI-CSS-master/semantic.min.css">
+    <link rel="stylesheet" href="/static/css/myblog.css">
+    <link rel="icon" href="/images/settings.jpg" type="image/x-icon"/>
+    <title>后台管理登录</title>
+
+
+</head>
+<body>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="ui middle aligned center aligned grid m-container-small m-padded-tb-big">
+    <div class="column">
+        <h2 class="ui teal image header">
+            <div class="content header">
+                姜家伟的个人博客登录
+            </div>
+        </h2>
+        <h3 class="ui red header" th:text="${tip}"></h3>
+        <form class="ui large form" method="post" action="/user/login">
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="name" placeholder="账号" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="密码" required>
+                    </div>
+                </div>
+                <button class="ui fluid large teal submit button" type="submit">登录</button>
+            </div>
+
+            <div class="ui error message"></div>
+
+        </form>
+
+
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<!--~{index::footer}-->
+<!--模板名::片段名-->
+<!--th:fragment="footer"-->
+<!--<div th:replace="~{index::footer}"></div>-->
+<footer class="ui inverted vertical segment m-opacity-tiny">
+    <div class="ui center aligned container">
+        <p class="">
+            <img style="vertical-align: middle;height:20px;width:20px;margin-bottom:3px;margin-right:5px" src="/images/gongan.png">
+            <a style="margin-right:16px;" rel="noreferrer" target="_blank" class="ml14">公安备案号 4864561534165456</a>
+            <a rel="noreferrer" target="_blank" class="ml14" style="margin-right:16px;">京ICP备1654651488号</a>
+            <a rel="noreferrer" target="_blank" class="ml14" style="margin-right:16px;">京网文〔2020〕1024-255号</a>
+            <a style="margin-right:16px;" target="_blank">个人网站备案信息</a>
+            <span class="">©1999-2020 浙江奥力给网络技术有限公司 </span>
+        </p>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny m-text-lined">Copyright © 2020  </p>
+    </div>
+</footer>
+
+
+<script src="/static/js/jquery-3.5.1.min.js"></script>
+<script src="/static/Semantic-UI-CSS-master/semantic.min.js"></script>
+<script type="text/javascript">
+
+    $("#b1").click(function () {
+        $(".m-item").toggleClass("m-mobile-hide");
+    });
+
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    })
+
+
+</script>
+
+</body>
+</html>

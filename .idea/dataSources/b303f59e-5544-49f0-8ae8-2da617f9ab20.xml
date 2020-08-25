@@ -1170,7 +1170,7 @@
     <column id="296" parent="288" name="content">
       <Position>4</Position>
       <Comment>博客内容</Comment>
-      <DataType>longblob|0s</DataType>
+      <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="297" parent="288" name="publish_date">

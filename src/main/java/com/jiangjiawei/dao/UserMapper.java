@@ -11,7 +11,7 @@ import java.util.Map;
 public interface UserMapper {
 
     //按条件查找用户
-    List<User> findUserByCondition(Map<String,Object> map);
+    User findUserByCondition(Map<String,Object> map);
 
     //查找所有用户
     List<User> findUserAll();

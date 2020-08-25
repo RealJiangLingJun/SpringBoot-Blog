@@ -1,6 +1,11 @@
 body{
-    background-size:100% 100%;
-    background: url("../images/背景图.jpg") no-repeat fixed;
+    position : absolute;
+    width : 100vw;
+    height : 100vh;
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position : 50%;
+    background-image : url('/images/背景图.jpg');
 
 }
 

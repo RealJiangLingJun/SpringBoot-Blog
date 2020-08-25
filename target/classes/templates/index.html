@@ -4,31 +4,36 @@
     <meta charset="UTF-8">
     <!--移动端的预览设置，用于适配移动端-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="/Semantic-UI-CSS-master/semantic.min.css">
-    <link rel="stylesheet" href="/css/myblog.css">
-    <link rel="icon" href="../images/logo.png" type="image/x-icon"/>
-    <title>MyBlog-jiaweijiang</title>
+    <link rel="stylesheet" href="/static/Semantic-UI-CSS-master/semantic.min.css">
+    <link rel="stylesheet" href="/static/css/myblog.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon"/>
+<!--    https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3219579934,3517660132&fm=26&gp=0.jpg-->
+    <title>家伟'Blog</title>
 </head>
 <body>
     <!--导航-->
     <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
         <div class="ui container">
             <div class="ui inverted secondary menu stackable">
-                <h2 class="ui teal header item"><a href="http://localhost:8090/">Blog</a></h2>
-                <a href="/index" class="m-item item m-mobile-hide active"><i class="home icon"></i>首页</a>
+                <h2 class="ui teal header item"><a href="http://localhost:8090/">家伟'Blog</a></h2>
+                <a href="http://localhost:8090/" class="m-item item m-mobile-hide active"><i class="home icon"></i>首页</a>
                 <a href="/page_types" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
                 <a href="/page_tags" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
                 <a href="/archives" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
                 <a href="/about" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
                 <div class="m-item right item  m-mobile-hide">
                     <form action="/search" method="get">
-                        <div class="ui action input inverted transparent ">
+                        <div class="ui action input ">
                             <input type="text" name="title" placeholder="search...">
                             <button class="ui icon button" type="submit">
                                 <i class="search icon"></i>
                             </button>
                         </div>
                     </form>
+                    <a href="http://localhost:8090/login" class="m-item item m-mobile-hide m-padded">
+                        <i class="bug icon"></i>
+                        管理员登录
+                    </a>
                 </div>
             </div>
         </div>
@@ -71,7 +76,7 @@
                                         <div class="eleven wide column">
                                             <div class="ui list horizontal link mini ">
                                                 <div class="item">
-                                                    <img src="/images/头像.jpg" class="ui avatar image">
+                                                    <img src="/images/title.jpeg" class="ui avatar image">
                                                     <div class="content"><a href="#" class="header ">追梦</a></div>
                                                 </div>
                                                 <div class="item">
@@ -90,7 +95,7 @@
                                 <div class="ui five wide column m-padded-tb-large">
 
                                     <a th:href="@{'/page_blog/'}" target="_blank" >
-                                        <img  class="ui round image ">
+                                        <img  class="ui round image " >
                                     </a>
                                 </div>
                             </div>
@@ -171,9 +176,9 @@
 
                     </div>
                     <!--二维码-->
-                    <div class="ui horizontal divider header">扫码关注我</div>
+                    <div class="ui horizontal inverted divider header">扫码关注我</div>
                     <div class="ui card centered" style="width: 11em">
-                        <img src="/images/csdn.png" alt="" class="ui rounded image">
+                        <img src="/images/jjw.jpg" alt="" class="ui rounded image">
                     </div>
 
                 </div>
@@ -188,7 +193,7 @@
         <div class="ui center aligned container">
             <div class="ui inverted divided stackable grid">
                 <div class="two wide column ">
-                    <h4 class="ui inverted header item m-text-thin m-text-spaced m-opacity-mini" >QQ讨论群</h4>
+                    <h4 class="ui inverted header item m-text-thin m-text-spaced m-opacity-mini" >扫码有惊喜！</h4>
                     <div class="ui inverted link list">
                         <div class="item">
                             <img src="/images/QRcode.png" class="ui rounded image item" style="width: 100px">
@@ -206,8 +211,8 @@
                     <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
                     <div class="ui inverted link list">
                         <p class="item m-text-lined" href="#">QQ:</p>
-                        <p class="item m-text-lined" href="#">email:@qq.com</p>
-                        <a class="item m-text-lined" href="https://blog.csdn.net/qq_46101869">CSDN博客</a>
+                        <p class="item m-text-lined" href="#">jiawei15214742755@126.com</p>
+                        <a class="item m-text-lined" href="https://blog.csdn.net/weixin_46044303">CSDN博客</a>
                     </div>
                 </div>
                 <div class="six wide column">
@@ -216,13 +221,21 @@
                 </div>
             </div>
             <div class="ui divider "></div>
+            <p class="">
+                <img style="vertical-align: middle;height:20px;width:20px;margin-bottom:3px;margin-right:5px" src="/images/gongan.png">
+                <a style="margin-right:16px;" rel="noreferrer" target="_blank" class="ml14">公安备案号 1024102410241024</a>
+                <a rel="noreferrer" target="_blank" class="ml14" style="margin-right:16px;">京ICP备102410241024号</a>
+                <a rel="noreferrer" target="_blank" class="ml14" style="margin-right:16px;">京网文〔2020〕1024-255号</a>
+                <a style="margin-right:16px;" target="_blank">个人网站备案信息</a>
+                <span class="">©1999-2020 浙江奥力给网络技术有限公司 </span>
+            </p>
             <p class="m-text-thin m-text-spaced m-opacity-tiny m-text-lined">Copyright © 2020  </p>
         </div>
     </footer>
 
 
-<script src="/js/jquery-3.5.1.min.js"></script>
-<script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
+<script src="/static/js/jquery-3.5.1.min.js"></script>
+<script src="/static/Semantic-UI-CSS-master/semantic.min.js"></script>
     <script >
 
         $("#b1").click(function (){
