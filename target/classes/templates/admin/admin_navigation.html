@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--移动端的预览设置，用于适配移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/Semantic-UI-CSS-master/semantic.min.css">
+    <link rel="stylesheet" href="/css/myblog.css">
+    <link rel="icon" href="/images/backstage.jpg" type="image/x-icon"/>
+    <!--音乐框架CSS-->
+    <link rel="stylesheet" href="/static/musicPlayer/css/player.css" th:href="@{/musicPlayer/css/player.css}">
+    <title>后台管理</title>
+
+</head>
+<body id="body">
+<!--导航-->
+<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small" th:fragment="adminNav">
+    <div th:replace="~{admin/admin_musicPlayer::musicPlayer}"></div>
+    <div class="ui container">
+        <div class="ui inverted secondary menu stackable">
+            <h2 class="ui teal header item">管理后台</h2>
+            <a href="/admin/admin_index" class="m-item item m-mobile-hide" th:classappend="${navIndex == 1}? 'active':''">
+                <i class="home icon"></i>博客
+            </a>
+            <a href="/admin/admin_columnist" class="m-item item m-mobile-hide" th:classappend="${navIndex == 2}? 'active':''">
+                <i class="idea icon"></i>分类
+            </a>
+            <a href="/admin/tags" class="m-item item m-mobile-hide" th:classappend="${navIndex == 3}? 'active':''">
+                <i class="tags icon"></i>标签
+            </a>
+            <a href="/admin/comments" class="m-item item m-mobile-hide" th:classappend="${navIndex == 4}? 'active':''">
+                <i class="comment icon"></i>评论管理
+            </a>
+            <div class="right menu">
+                <div class="ui dropdown item m-item m-mobile-hide">
+                    <img  src="" th:src="${session.user.icon}" class="ui avatar image">
+                    &nbsp;&nbsp;[[${session.user.name}]]
+                    <i class="dropdown icon"></i>
+                    <div class="menu ">
+                        <a class="item " href="#" onclick="$('.ui.modal').modal('show');" ><i class="address card icon"></i>个人信息</a>
+                        <a class="item " href="" th:href="@{/admin/logout}"><i class="power off icon"></i>注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="b1" href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--弹出层-->
+<div class="ui modal">
+    <!--关闭图标-->
+    <i class="close icon"></i>
+    <div class="header">
+        个人信息
+    </div>
+    <div class="image content">
+        <div class="ui medium image">
+            <img src="/images/avatar/large/chris.jpg" th:src="${session.user.icon}">
+        </div>
+        <div class="description">
+            <table class="ui celled table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${session.user.name}"></td>
+                    <td th:text="${session.user.sex}"></td>
+                    <td th:text="${session.user.emial}"></td>
+                    <td class="negative" th:text="${session.user.admin==0}?'否':'是'"></td>
+                </tr>
+                </tbody>
+            </table>
+            <p class="ui ">Hello World!</p>
+            <p class="ui ">未来会怎么样，没有必要过多去想象，一路走下去才会知道。</p>
+            <p class="ui ">改变命运的，并不是所谓的机遇，而是你我对人生的态度。</p>
+            <p class="ui ">笑面人生，会发现哪里都是阳光灿烂；笑面困难，会发现困难并非难已克服。</p>
+            <p class="ui ">每天清晨，保持乐观积极的态度，迎着阳光，一路向前！</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Close
+        </div>
+        <div class="ui positive right labeled icon button">
+            Yes,I Will.
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
