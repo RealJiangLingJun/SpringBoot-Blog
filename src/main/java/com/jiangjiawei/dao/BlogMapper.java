@@ -19,8 +19,11 @@ public interface BlogMapper {
     List<Blog> findBlogByIds(List<String> list);
 
     //添加Blog
-    void insertBlog(Blog blog);
+    int insertBlog(Blog blog);
 
     //修改Blog信息
-    void updateBlog(Map<String,Object> map);
+    int updateBlog(Blog blog);
+
+    //根据所给的专栏 id 查出在该id下的所有博客数量
+    int selectBlogCountById(int columnId);
 }

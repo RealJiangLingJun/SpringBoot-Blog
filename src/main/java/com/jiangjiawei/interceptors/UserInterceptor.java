@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 public class UserInterceptor extends HandlerInterceptorAdapter {
 
     @Override
-    //在请求之前执行
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         User user = (User) request.getSession().getAttribute("user");
-        if(ObjectUtil.isEmpty(user)){
+//        System.out.println((ObjectUtil.isEmpty(user)?"null":user));
+        if (ObjectUtil.isEmpty(user)) {
             response.sendRedirect("/login");
             return false;
         }
-        return false;
+        return true;
     }
 }

@@ -22,7 +22,6 @@ public class UserService implements com.jiangjiawei.service.UserService {
             Map<String,Object> map = new HashMap<>();
             map.put("name",name);
             map.put("password",password);
-            System.out.println(map.toString());
             user = userMapper.findUserByCondition(map);
             return user;
         }

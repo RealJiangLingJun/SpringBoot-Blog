@@ -22,9 +22,6 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-# 配置静态资源路径
-  resources:
-    static-locations: classpath:/
 
   # 去除thymeleaf缓存
   thymeleaf:
@@ -39,6 +36,10 @@ mybatis:
   mapper-locations: classpath:dao/*Mapper.xml
 #  设置包别名
   type-aliases-package: com.jiangjiawei.domain
+#  控制台查看sql语句
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 
 
 

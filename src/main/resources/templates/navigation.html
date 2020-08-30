@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--移动端的预览设置，用于适配移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/Semantic-UI-CSS-master/semantic.min.css">
+    <link rel="stylesheet" href="/css/myblog.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon"/>
+    <!--    https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3219579934,3517660132&fm=26&gp=0.jpg-->
+    <!--音乐插件CSS-->
+    <link rel="stylesheet" href="/static/musicPlayer/css/player.css" th:href="@{/musicPlayer/css/player.css}">
+    <title>家伟'Blog</title>
+    <title>Title</title>
+</head>
+<body>
+    <!--导航-->
+    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <!--引入音乐播放框架-->
+        <div th:replace="~{musicPlayer::musicPlayer}"></div>
+        <div class="ui container">
+            <div class="ui inverted secondary menu stackable">
+                <h2 class="ui teal header item"><a href="http://localhost:8090/">家伟'Blog</a></h2>
+                <a href="http://localhost:8090/" class="m-item item m-mobile-hide active"><i class="home icon"></i>首页</a>
+                <a href="/page_types" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="/page_tags" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="/archives" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="/about" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+                <div class="m-item right item  m-mobile-hide">
+                    <form action="/search" method="get">
+                        <div class="ui action input ">
+                            <input type="text" name="title" placeholder="search...">
+                            <button class="ui icon button" type="submit">
+                                <i class="search icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <a href="http://localhost:8090/login" class="m-item item m-mobile-hide m-padded">
+                        <i class="bug icon"></i>
+                        管理员登录
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--做移动端适配-->
+        <a id="b1" href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <iframe src="index.html" th:src="@{/}"  width="100%" height="100%"></iframe>
+
+</body>
+</html>

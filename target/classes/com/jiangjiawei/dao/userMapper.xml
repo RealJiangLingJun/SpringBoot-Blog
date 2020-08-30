@@ -40,10 +40,10 @@
             AND u.emial LIKE CONCAT('%', #{emial}, '%')
         </if>
         <if test="name != null and name != ''">
-            AND u.name LIKE CONCAT('%', #{name}, '%')
+            AND u.name = #{name}
         </if>
         <if test="password != null and password != ''">
-            AND u.password LIKE CONCAT('%', #{password}, '%')
+            AND u.password = #{password}
         </if>
         <if test="icon != null and icon != ''">
             AND u.icon LIKE CONCAT('%', #{icon}, '%')

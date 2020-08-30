@@ -19,9 +19,9 @@ public interface ColumnistMapper {
     List<Columnist> findColumnistByIds(List<String> list);
 
     //插入栏目信息
-    void insertColumnist(Columnist columnist);
+    int insertColumnist(Columnist columnist);
 
     //修改栏目信息
-    void updateColumnist(Map<String,Object> map);
+    int updateColumnist(Columnist columnist);
 
 }

@@ -20,6 +20,7 @@
 
     <dependencies>
 
+        <!-- 数据库驱动-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -74,6 +75,12 @@
             <version>5.4.0</version>
         </dependency>
 
+        <!--分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.13</version>
+        </dependency>
 
         <!--        测试-->
         <dependency>

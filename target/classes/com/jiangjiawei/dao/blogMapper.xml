@@ -57,7 +57,7 @@
         <if test="publishDate != null">
             AND b.publish_date = #{publishDate}
         </if>
-        <if test="columnId != null">
+        <if test="columnId != null and columnId != ''">
             AND b.column_id = #{columnId}
         </if>
         <if test="views != null">
@@ -128,7 +128,7 @@
     </insert>
     
     <!-- 修改数据 -->
-    <update id="updateBlog" parameterType="map">
+    <update id="updateBlog" parameterType="com.jiangjiawei.domain.Blog">
         UPDATE blog
         <set>
             <if test="title != null">
@@ -179,5 +179,12 @@
         </set>
         WHERE id = #{id}
     </update>
-    
+
+<!--   根据所给的专栏 id 查出在该id下的所有博客数量-->
+    <select id="selectBlogCountById" resultType="int">
+        select count(*) from blog where 1=1
+        <if test="columnId != null and columnId != ''">
+            AND column_id = #{columnId}
+        </if>
+    </select>
 </mapper>

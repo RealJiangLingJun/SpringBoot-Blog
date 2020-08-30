@@ -10,4 +10,9 @@ public class TestController {
     public String index(){
         return "index";
     }
+
+    @GetMapping("/navigation")
+    public String navigation(){
+        return "/navigation";
+    }
 }
