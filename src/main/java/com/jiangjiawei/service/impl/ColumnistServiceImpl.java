@@ -8,10 +8,7 @@ import com.jiangjiawei.service.ColumnistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class ColumnistServiceImpl implements ColumnistService {
@@ -22,10 +19,26 @@ public class ColumnistServiceImpl implements ColumnistService {
     @Autowired
     private BlogMapper blogMapper;
 
+    //将查询到的专栏信息从集合中转化到Map中
+    private Map<String ,String> toMap(List<Columnist> list){
+        Map<String ,String> map = new HashMap<>();
+        for(Columnist columnist : list){
+            map.put(columnist.getId()+"",columnist.getName());
+        }
+        return map;
+    }
+
     @Override
     //获取所有的专栏信息
-    public List<Columnist> getAllColumnist() {
-        return columnistMapper.findColumnistAll();
+    public Map<String ,String> getAllColumnistMap() {
+        List<Columnist> columnistList = columnistMapper.findColumnistAll();
+        return toMap(columnistList);
+    }
+
+    @Override
+    public List<Columnist> getAllColumnistList() {
+        List<Columnist> columnistList = columnistMapper.findColumnistAll();
+        return columnistList;
     }
 
     @Override
@@ -74,6 +87,11 @@ public class ColumnistServiceImpl implements ColumnistService {
     @Override
     public int selectBlogCountById(int columnId) {
         return blogMapper.selectBlogCountById(columnId);
+    }
+
+    @Override
+    public List<Columnist> getTopColumnist(int number) {
+        return columnistMapper.getTopColumnist(number);
     }
 
 

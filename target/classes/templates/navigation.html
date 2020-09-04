@@ -9,32 +9,154 @@
     <link rel="icon" href="/images/logo.png" type="image/x-icon"/>
     <!--音乐插件CSS-->
     <link rel="stylesheet" href="/static/musicPlayer/css/player.css" th:href="@{/musicPlayer/css/player.css}">
+<!--    动态背景 js 和 样式-->
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <style>
+        body {
+            /*注释掉这两行，可以将背景变为白色，去掉了渐变色*/
+            background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
+            background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+            }
+            100% {
+                transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+            }
+        }
+        .stars {
+            transform: perspective(500px);
+            transform-style: preserve-3d;
+            position: absolute;
+            bottom: 0;
+            perspective-origin: 50% 100%;
+            left: 50%;
+            animation: rotate 90s infinite linear;
+        }
+
+        .star {
+            width: 2px;
+            height: 2px;
+            background: #F7F7B6;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0 -300px;
+            transform: translate3d(0, 0, -300px);
+            backface-visibility: hidden;
+        }
+        .table{
+            width: 400px;
+            height: 350px;
+            margin: 80px auto;
+        }
+        .table form{
+            width: 100%;
+        }
+        .table .name{
+            width: 280px;
+            margin: 20px auto 30px auto;
+            display: block;
+            height: 30px;
+            border-radius: 20px;
+            border: none;
+            background: rgba(0,0,0,0.2);
+            text-indent: 0.5em;
+        }
+        .table .btn{
+            width: 100px;
+            height: 30px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border: none;
+            color: white;
+            margin: 0 auto;
+            display: block;
+        }
+
+    </style>
     <title>家伟'Blog</title>
+
+    <script text="javascript">
+        function addActive(num) {
+            for( var i = 1 ;i<=5 ;i++){
+                if(i == num) {
+                    document.getElementById(i).setAttribute('class',"m-item item m-mobile-hide active");
+                }else {
+                    document.getElementById(i).setAttribute('class', "m-item item m-mobile-hide");
+                }
+            }
+        }
+
+        <!--    这里的js代码主要是为 index 页面中标签专栏标签跳转使用的-->
+        //前往 专栏 页面，并选中指定的 专栏
+        function gotoAndDefaultColumn(columnId) {
+            console.log("执行 gotoAndDefaultColumn 方法");
+            //根据导航中的专栏的标签对应的 id属性值，执行相应的 addActive() 函数
+            //目的是 让addActive()函数执行，是导航中选中的位置变为我们要跳转的位置
+            addActive(2);
+
+            //发送get请求跳转到专栏的查看界面，并显示对应的专栏信息
+            window.InfoShow.location.href = "/checkTheColumn?columnId="+columnId;
+        }
+
+        //前往 标签 页面，并选中指定的 标签
+        function gotoAndDefaultTag(tagId) {
+            console.log("执行 gotoAndDefaultTag 方法");
+            //根据导航中的专栏的标签对应的 id属性值，执行相应的 addActive() 函数
+            //目的是 让addActive()函数执行，是导航中选中的位置变为我们要跳转的位置
+            addActive(3);
+
+            //发送get请求跳转到标签的查看界面，并显示对应的标签信息
+            window.InfoShow.location.href = "/checkTheTag?tagId="+tagId;
+        }
+    </script>
 </head>
 <body>
+
+    <!--动态背景-->
+    <div class="stars"></div>  <!--背景层，不要删除，不然没有作用-->
+    <script>
+        $(document).ready(function(){
+            var stars=1000;  /*星星的密集程度，数字越大越多*/
+            var $stars=$(".stars");
+            var r=500;   /*星星的看起来的距离,值越大越远,可自行调制到自己满意的样子*/
+            for(var i=0;i<stars;i++){
+                var $star=$("<div/>").addClass("star");
+                $stars.append($star);
+            }
+            $(".star").each(function(){
+                var cur=$(this);
+                var s=0.2+(Math.random()*1);
+                var curR=r+(Math.random()*300);
+                cur.css({
+                    transformOrigin:"0 0 "+curR+"px",
+                    transform:" translate3d(0,0,-"+curR+"px) rotateY("+(Math.random()*360)+"deg) rotateX("+(Math.random()*-50)+"deg) scale("+s+","+s+")"
+
+                })
+            })
+        })
+    </script>
+
     <!--导航-->
     <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
         <!--引入音乐播放框架-->
         <div th:replace="~{musicPlayer::musicPlayer}"></div>
         <div class="ui container">
             <div class="ui inverted secondary menu stackable">
-                <h2 class="ui teal header item"><a href="/index" target="InfoShow">家伟'Blog</a></h2>
-                <a href="/index" class="m-item item m-mobile-hide active" target="InfoShow"><i class="home icon"></i>首页</a>
-                <a href="/columnist" class="m-item item m-mobile-hide" target="InfoShow"><i class="idea icon"></i>专栏</a>
-                <a href="/page_tags" class="m-item item m-mobile-hide" target="InfoShow"><i class="tags icon"></i>标签</a>
-                <a href="/archives" class="m-item item m-mobile-hide" target="InfoShow"><i class="clone icon"></i>归档</a>
-                <a href="/about" class="m-item item m-mobile-hide" target="InfoShow"><i class="info icon"></i>关于我</a>
+                <h2 class="ui teal header item"><a href="/index" onclick="addActive(1)" target="InfoShow">家伟'Blog</a></h2>
+                <a id="1" href="/index" class="m-item item m-mobile-hide active" onclick="addActive(1)" target="InfoShow"><i class="home icon"></i>首页</a>
+                <a id="2" href="/columnist" class="m-item item m-mobile-hide" onclick="addActive(2)" target="InfoShow"><i class="idea icon"></i>专栏</a>
+                <a id="3" href="/tag" class="m-item item m-mobile-hide" onclick="addActive(3)" target="InfoShow"><i class="tags icon"></i>标签</a>
+                <a id="4" href="/archives" class="m-item item m-mobile-hide" onclick="addActive(4)" target="InfoShow"><i class="clone icon"></i>归档</a>
+                <a id="5" href="/aboutMe" class="m-item item m-mobile-hide" onclick="addActive(5)" target="InfoShow"><i class="info icon"></i>作者信息</a>
                 <div class="m-item right item  m-mobile-hide">
-                    <form action="/search" method="get">
-                        <div class="ui action input ">
-                            <input type="text" name="title" placeholder="search...">
-                            <button class="ui icon button" type="submit">
-                                <i class="search icon"></i>
-                            </button>
-                        </div>
-                    </form>
-                    <a href="http://localhost:8090/login" class="m-item item m-mobile-hide m-padded">
-                        <i class="bug icon"></i>
+                    <a href="http://localhost:8090/login" target="_blank" class="m-item item m-mobile-hide m-padded">
+                        <img  src="images/head.jpg" class="ui avatar image">
                         管理员登录
                     </a>
                 </div>
@@ -62,6 +184,18 @@
 <!--            }-->
 <!--        }-->
 <!--    </script>-->
+
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
+
+
+    <script >
+        $("#b1").click(function (){
+            $(".m-item").toggleClass("m-mobile-hide");
+        });
+
+
+    </script>
 
 </body>
 </html>

@@ -26,4 +26,6 @@ public interface BlogMapper {
 
     //根据所给的专栏 id 查出在该id下的所有博客数量
     int selectBlogCountById(int columnId);
+
+    List<Blog> getNewBlog(int number);
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--移动端的预览设置，用于适配移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/Semantic-UI-CSS-master/semantic.min.css">
+    <link rel="stylesheet" href="/css/myblog.css">
+    <title>后台管理</title>
+
+
+</head>
+<body>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+        <div class="ui top attached segment">
+            <h2 class="ui header">评论详情</h2>
+        </div>
+        <div class="ui attached segment">
+            用户名称：<span th:text="${comment?.getReplyName()}"></span>
+        </div>
+        <div class="ui attached segment">
+            用户邮箱：<span th:text="${comment?.getReplyEmail()}"></span>
+        </div>
+        <div class="ui attached segment">
+            发表时间：<span th:text="${#dates.format(comment?.getPublishDate(),'yyyy-MM-dd HH:mm:ss')}"></span>
+        </div>
+        <div class="ui bottom attached segment">
+            评论内容：<span th:text="${comment?.getReplyContent()}"></span>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--底部footer-->
+<div th:replace="~{index::footer}"></div>
+
+
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
+<script type="text/javascript">
+
+    $("#b1").click(function (){
+        $(".m-item").toggleClass("m-mobile-hide");
+    });
+    $('#payButton').popup({
+        popup:$('.popup.payQR'),
+        on:'click',
+        position:'bottom center'
+    });
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    })
+</script>
+</body>
+</html>

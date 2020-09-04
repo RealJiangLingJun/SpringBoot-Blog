@@ -1,9 +1,8 @@
-package com.jiangjiawei.controller;
+package com.jiangjiawei.controller.adminController;
 
 import cn.hutool.core.convert.Convert;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.jiangjiawei.domain.Blog;
 import com.jiangjiawei.domain.Columnist;
 import com.jiangjiawei.service.BlogService;
 import com.jiangjiawei.service.ColumnistService;
@@ -21,7 +20,7 @@ import java.util.*;
  */
 @Controller
 @RequestMapping("/admin")
-public class ColumnistController {
+public class AdminColumnistController {
 
     //一页显示的数据
     private static final int SIZE = 8;
@@ -46,11 +45,11 @@ public class ColumnistController {
         //查询所有的专栏信息，这里要使用分页插件
         PageHelper.startPage(1,SIZE);
         PageInfo<Columnist> pageInfo = columnistService.getColumnistPaging();
-        //查询所有专栏下的博客数量
-        for(Columnist columnist : pageInfo.getList()){
-            int count = columnistService.selectBlogCountById(columnist.getId());
-            columnist.setBlogCount(count);
-        }
+//        //查询所有专栏下的博客数量
+//        for(Columnist columnist : pageInfo.getList()){
+//            int count = columnistService.selectBlogCountById(columnist.getId());
+//            columnist.setBlogCount(count);
+//        }
 
         model.addAttribute("PageInfo",pageInfo);
 
@@ -67,12 +66,12 @@ public class ColumnistController {
         PageHelper.startPage(Convert.toInt(map.get("currentPage")),SIZE);
         List<Columnist> columnistList = columnistService.getColumnistByCondition(map);
         PageInfo<Columnist> pageInfo =new PageInfo(columnistList);
-        //查询所有专栏下的博客数量
-        for(Columnist columnist : pageInfo.getList()){
-            int count = columnistService.selectBlogCountById(columnist.getId());
-            columnist.setBlogCount(count);
-            System.out.println(columnist);
-        }
+//        //查询所有专栏下的博客数量
+//        for(Columnist columnist : pageInfo.getList()){
+//            int count = columnistService.selectBlogCountById(columnist.getId());
+//            columnist.setBlogCount(count);
+//            System.out.println(columnist);
+//        }
 
         model.addAttribute("PageInfo",pageInfo);
 

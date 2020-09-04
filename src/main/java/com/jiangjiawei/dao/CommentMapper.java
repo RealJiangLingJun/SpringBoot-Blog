@@ -19,8 +19,8 @@ public interface CommentMapper {
     List<Comment> findCommentByIds(List<String> list);
 
     //增加评论信息
-    void insertComment(Comment comment);
+    int insertComment(Comment comment);
 
     //修改评论信息
-    void updateComment(Map<String,Object> map);
+    int updateComment(Comment comment);
 }

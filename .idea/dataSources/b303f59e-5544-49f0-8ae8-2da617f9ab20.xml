@@ -1206,7 +1206,7 @@
     <column id="302" parent="288" name="blog_img">
       <Position>10</Position>
       <Comment>博客首页图</Comment>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="303" parent="288" name="blog_state">
@@ -1341,8 +1341,8 @@
     <column id="324" parent="290" name="reply_state">
       <Position>7</Position>
       <Comment>留言状态</Comment>
-      <DataType>enum(&apos;未审核&apos;, &apos;未通过&apos;, &apos;已通过&apos;)|0e</DataType>
-      <DefaultExpression>&apos;未审核&apos;</DefaultExpression>
+      <DataType>enum(&apos;已删除&apos;, &apos;未通过&apos;, &apos;已通过&apos;)|0e</DataType>
+      <DefaultExpression>&apos;未通过&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="325" parent="290" name="reply_content">
@@ -1382,24 +1382,30 @@
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="291" name="blog_count">
+    <column id="331" parent="291" name="tag_state">
       <Position>3</Position>
+      <Comment>标签状态</Comment>
+      <DataType>tinyint|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="332" parent="291" name="blog_count">
+      <Position>4</Position>
       <Comment>博客数量</Comment>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="291" name="create_time">
-      <Position>4</Position>
+    <column id="333" parent="291" name="create_time">
+      <Position>5</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="333" parent="291" name="PRIMARY">
+    <key id="334" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="334" parent="292" name="id">
+    <column id="335" parent="292" name="id">
       <Position>1</Position>
       <Comment>用户ID</Comment>
       <DataType>int|0s</DataType>
@@ -1407,50 +1413,50 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="292" name="emial">
+    <column id="336" parent="292" name="emial">
       <Position>2</Position>
       <Comment>电子邮箱</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="292" name="name">
+    <column id="337" parent="292" name="name">
       <Position>3</Position>
       <Comment>用户名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="292" name="password">
+    <column id="338" parent="292" name="password">
       <Position>4</Position>
       <Comment>密码</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="292" name="icon">
+    <column id="339" parent="292" name="icon">
       <Position>5</Position>
       <Comment>用户头像地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="292" name="admin">
+    <column id="340" parent="292" name="admin">
       <Position>6</Position>
       <Comment>是否是管理员</Comment>
       <DataType>tinyint|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="292" name="create_time">
+    <column id="341" parent="292" name="create_time">
       <Position>7</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="292" name="sex">
+    <column id="342" parent="292" name="sex">
       <Position>8</Position>
       <Comment>性别</Comment>
       <DataType>enum(&apos;男&apos;, &apos;女&apos;)|0e</DataType>
       <DefaultExpression>&apos;男&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="342" parent="292" name="PRIMARY">
+    <key id="343" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

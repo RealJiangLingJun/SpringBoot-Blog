@@ -23,6 +23,9 @@ public class Tag implements java.io.Serializable {
     /** 标签名称 */
     private String name;
 
+    //标签状态
+    private Integer tagState;
+
     /** 博客数量 */
     private Integer blogCount;
 
@@ -71,6 +74,17 @@ public class Tag implements java.io.Serializable {
         this.name = name;
     }
 
+
+    public Integer getTagState() {
+        return tagState;
+    }
+
+
+    public void setTagState(Integer tagState) {
+        this.tagState = tagState;
+    }
+
+
     /**
      * 获取博客数量
      * 
@@ -114,6 +128,7 @@ public class Tag implements java.io.Serializable {
         return "Tag{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", tagState=" + tagState +
                 ", blogCount=" + blogCount +
                 ", createTime=" + createTime +
                 '}';

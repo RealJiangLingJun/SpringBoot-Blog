@@ -15,7 +15,7 @@
 </head>
 <body>
 <!--导航-->
-<div th:replace="~{admin/admin_index::adminNav}"></div>
+<!--<div th:replace="~{admin/admin_index::adminNav}"></div>-->
 
 <!--二级导航-->
 <div class="ui menu attached inverted ">
@@ -30,7 +30,7 @@
         <br>
         <br>
         <br>
-        <form action="/admin/update_columnist" class="ui form segment inverted" method="post">
+        <form action="/admin/update_columnist" target="InfoShow" class="ui form segment inverted" method="post">
             <input type="hidden" name="id" th:value="${columnist.getId()}">
             <div class="fields inline">
                 <div class="field">
@@ -51,7 +51,7 @@
 <br>
 <br>
 <!--底部footer-->
-<div th:replace="~{index::footer}"></div>
+<!--<div th:replace="~{index::footer}"></div>-->
 
 
 <script src="/js/jquery-3.5.1.min.js"></script>

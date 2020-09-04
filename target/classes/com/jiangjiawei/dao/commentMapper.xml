@@ -52,10 +52,10 @@
             AND c.publish_date = #{publishDate}
         </if>
         <if test="bloggerState != null and bloggerState != ''">
-            AND c.blogger_state LIKE CONCAT('%', #{bloggerState}, '%')
+            AND c.blogger_state = #{bloggerState}
         </if>
         <if test="replyState != null and replyState != ''">
-            AND c.reply_state LIKE CONCAT('%', #{replyState}, '%')
+            AND c.reply_state = #{replyState}
         </if>
         <if test="replyContent != null and replyContent != ''">
             AND c.reply_content LIKE CONCAT('%', #{replyContent}, '%')

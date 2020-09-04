@@ -8,7 +8,9 @@ import java.util.Map;
 
 public interface BlogService {
 
-    int addBlog(Blog blog);
+    Blog getBlogById(String id);
+
+    int addBlog(Blog blog,String state);
 
     List<Blog> getAllBlog();
 
@@ -16,7 +18,11 @@ public interface BlogService {
 
     List<Blog> getBlogByCondition(Map<String,Object> map);
 
-    int updateBlog(Blog blog);
+    int updateBlog(Blog blog,String state);
 
     int deleteBlog(String id);
+
+    List<Blog> getNewBlog(int number);
+
+    int addViews(String blogId);
 }

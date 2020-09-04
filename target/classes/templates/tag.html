@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <!--移动端的预览设置，用于适配移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/Semantic-UI-CSS-master/semantic.min.css">
+    <link rel="stylesheet" href="/css/myblog.css">
+    <title>标签</title>
+
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script type="text/javascript">
+
+        $("#b1").click(function (){
+            $(".m-item").toggleClass("m-mobile-hide");
+        });
+        $('#payButton').popup({
+            popup:$('.popup.payQR'),
+            on:'click',
+            position:'bottom center'
+        });
+
+        //当前页码
+        var currentPage = 1;
+            var totalPages = document.getElementById("totalPages").value;
+
+        //下一页
+        function next() {
+            totalPages = document.getElementById("totalPages").value;
+            if(currentPage < totalPages){
+                currentPage++;
+                loadData();
+            };
+        };
+
+        //上一页
+        function pre() {
+            totalPages = document.getElementById("totalPages").value;
+            if(currentPage > 1){
+                currentPage--;
+                loadData();
+            };
+        };
+
+        //搜索
+        function search() {
+            // 搜索重置当前页
+            currentPage = 1;
+            loadData();
+        };
+
+        function loadData() {
+            $.ajax({
+                url: "/find_tag_paging",
+                data: {"currentPage": currentPage,"tags": $("[name='tags']").val()},
+                type: "get",
+                success: function (result) {
+                    $("#table-container").html(result);
+                }
+            })
+        };
+
+    <!-- 用来控制 标签 的选中状态,并在点击后发送请求查询对应的博客再显示-->
+        function selectedTag(num,tagId) {
+            console.log(num,tagId)
+            //这个表示标签的总个数，标签列表的总个数
+            var tagNum = document.getElementById("tagNum").value;
+            console.log(tagNum)
+            for( var i = 1 ;i<=tagNum ;i++){
+                //寻找用户点击出发的专栏
+                if(i == num) {
+                    //设置用户点击的那个标签变为选中状态
+                    document.getElementById('tagId'+i).children[0].setAttribute('class',"ui basic button teal");
+                    document.getElementById('tagId'+i).children[1].setAttribute('class',"ui basic left pointing label teal");
+                    console.log(document.getElementById('tagId'+i).children);
+                }else {
+                    document.getElementById('tagId'+i).children[0].setAttribute('class',"ui basic button");
+                    document.getElementById('tagId'+i).children[1].setAttribute('class',"ui basic left pointing label");
+                }
+            }
+            //发送AJAX查询博客信息
+            $.ajax({
+                url: "/check_tag",
+                data: {"tags": tagId},
+                type: "get",
+                success: function (result) {
+                    $("#table-container").html(result);
+                }
+            })
+        };
+    </script>
+</head>
+<body>
+
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big m-opacity-mini">
+        <div class="ui container  aligned">
+            <div class="ui inverted divided stackable grid">
+            <!--对窗口进行切分 分为11份-->
+
+                <!--左边表格显示所有的标签信息列表-->
+                <div class="five wide column ">
+                    <div class="ui segments">
+                        <!--标签列表标题，标题总数-->
+                        <div class="ui secondary segment ">
+                            <div class="ui two column grid">
+                                <div class="column">
+                                    <h3 class="ui header teal" style="color:#f40">标签</h3>
+                                </div>
+                                <div class="column right aligned">
+                                    共<h2 class="ui orange header m-inline-block mth" th:text="${Tags.size()}">&nbsp;14&nbsp; </h2>个
+                                </div>
+                            </div>
+                        </div>
+                        <!--循环显示标签具体信息-->
+                        <div class="ui bottom attached segment">
+                            <input type="hidden" id="tagNum" value="" th:value="${Tags.size()}">
+                            <a th:each="tag,iter:${Tags}" th:onclick="|selectedTag(${iter.index+1},${tag.getId()})|">
+                                <!--加一个id属性来表示每一个标签，方便之后寻找， id=tagId+id ，方便后面根据点击哪个修改哪个  -->
+                                <div th:id="${'tagId'+(iter.index+1)}" style="color: black !important;" class="ui labeled button m-margin-tb-tiny">
+                                    <div class="ui basic button" style="font-weight: bold !important;" th:text="${tag.getName()}" th:classappend="${tag.getId() == defaultTag.getId()}? 'teal':''">一年总结
+                                    </div>
+                                    <div class="ui basic  left pointing label" th:text="${tag.getBlogCount()}" th:classappend="${tag.getId() == defaultTag.getId()}? 'teal':''">12
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--右边的列表显示 选中的标签 对应的博客信息-->
+                <div id="table-container" class="eleven wide column " >
+                    <div class="ui attached segment " th:fragment="table_refresh">
+                        <!--总页数-->
+                        <input id="totalPages" type="hidden" name="totalPages" value="" th:value="${PageInfo.pages}">
+                        <!--当前显示的标签ID-->
+                        <input type="hidden" name="tags" value="" th:value="${defaultTag.getId()}">
+                        <!--显示博客信息-->
+                        <div  th:if="${PageInfo.getList().size()==0}"><h2>没有更多的博客啦！不过未来说不定会有哦！QAQ</h2></div>
+                        <!--循环显示博客信息-->
+                        <div class="ui padded segment vertical m-padded-b-small m-mobile-clear" th:each="blog,iter:${PageInfo.getList()}">
+                            <div class="ui grid mobile reversed stackable">
+                                <div class="ui eleven wide column">
+                                    <a th:href="@{'/blog_detail/'+${blog.getId()}}" target="InfoShow">
+                                        <h3 class="ui header" th:text="${blog.getTitle()}">【一年总结】记我的大一生活</h3>
+                                    </a>
+                                    <p class="m-text-thin m-text-lined m-text-spaced"  th:text="${blog.getSummary()}"></p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui list horizontal link mini ">
+                                                <div class="item hover-link" onclick="$('.ui.modal').modal('show');">
+                                                    <img src="/images/head.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">姜家伟</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>
+                                                    <span th:text="${#dates.format(blog.getPublishDate(),'yyyy-MM-dd')}">2020-7-04</span>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i><span th:text="${blog.getViews()}">3012</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--循环显示所有的标签-->
+                                        <div class="five wide column right aligned ">
+                                            <span th:each="tag,iter:${Tags}"    >
+                                                <a th:if="${#strings.containsIgnoreCase(blog.getTags(),tag.getId())}"
+                                                     class="ui label teal basic m-padded-tiny"
+                                                     th:text="${tag.getName()}">一年总结</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui five wide column m-padded-tb-large">
+                                    <a th:href="@{'/blog_detail/'+${blog.getId()}}" target="InfoShow" >
+                                        <img  class="ui round image " th:src="@{${blog.getBlogImg()}}" >
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--个人信息弹出框-->
+                <span th:replace="~{index::popUp}"></span>
+                <!--底部-->
+                <div class="ui bottom attached segment">
+                    <div class="ui middle aligned grid two column">
+                        <div class="column">
+                            <a class="ui button basic mini teal" onclick="pre()" >上一页</a>
+                        </div>
+                        <div class="column right aligned">
+                            <a class="ui button basic mini teal" onclick="next()">下一页</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!--底部footer-->
+    <div th:replace="~{index::footer}"></div>
+
+</body>
+</html>

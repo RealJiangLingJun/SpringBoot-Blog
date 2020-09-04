@@ -1,171 +1,207 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <!--移动端的预览设置，用于适配移动端-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="/Semantic-UI-CSS-master/semantic.min.css">
     <link rel="stylesheet" href="/css/myblog.css">
-    <link rel="icon" href="/images/backstage.jpg" type="image/x-icon"/>
-    <!--音乐框架CSS-->
-    <link rel="stylesheet" href="/static/musicPlayer/css/player.css" th:href="@{/musicPlayer/css/player.css}">
-    <title>后台管理</title>
+    <title>分类专栏</title>
 
-
+<!-- 用来控制 专栏 的选中状态,并在点击后发送请求查询对应的博客再显示-->
+    <script text="javascript">
+        function selectedColumnist(num) {
+            console.log(num)
+            var columnistNum = document.getElementById("columnistNum").value;
+            console.log(columnistNum)
+            for( var i = 1 ;i<=columnistNum ;i++){
+                //寻找用户点击出发的专栏
+                if(i == num) {
+                    //设置用户点击的那个标签变为选中状态
+                    document.getElementById('columnId'+i).children[0].setAttribute('class',"ui basic button teal");
+                    document.getElementById('columnId'+i).children[1].setAttribute('class',"ui basic left pointing label teal");
+                    console.log(document.getElementById('columnId'+i).children);
+                }else {
+                    document.getElementById('columnId'+i).children[0].setAttribute('class',"ui basic button");
+                    document.getElementById('columnId'+i).children[1].setAttribute('class',"ui basic left pointing label");
+                }
+            }
+            //发送AJAX查询博客信息
+            $.ajax({
+                url: "/check_columnist",
+                data: {"columnId": num},
+                type: "get",
+                success: function (result) {
+                    $("#table-container").html(result);
+                }
+            })
+        }
+    </script>
 </head>
-<body id="body">
+<body>
 
-<!--二级导航-->
-<div class="ui menu attached inverted ">
-    <div class="ui container">
-        <a href="/admin/types-input" class="item">新增</a>
-        <a href="/admin/types" class="active item">列表</a>
-    </div>
-</div>
-<!--中间内容-->
-<div class="m-container-small m-padded-tb-big">
-    <div class="ui container">
-        <div class="ui form segment inverted">
-            <div class="fields inline">
-                <div class="field">
-                    <input type="text" name="name" placeholder="分类名称">
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big m-opacity-mini">
+        <div class="ui container  aligned">
+            <div class="ui inverted divided stackable grid">
+                <!--对窗口进行切分 分为11份-->
+
+                <!--左边表格显示所有的专栏信息-->
+                <div class="five wide column ">
+                    <div class="ui segments">
+                        <div class="ui secondary segment ">
+                            <div class="ui two column grid">
+                                <div class="column" style="color:#f40">
+                                    <i class="idea icon"></i>全部专栏
+                                </div>
+                                <div class="column right aligned">
+                                    共<h2 class="ui orange header m-inline-block mth" th:text="${Columnists.size()}">&nbsp;14&nbsp; </h2>个
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui bottom attached segment">
+                            <input type="hidden" id="columnistNum" value="" th:value="${Columnists.size()}">
+                            <a th:each="col,iter:${Columnists}" th:onclick="|selectedColumnist(${iter.index+1})|">
+                                <!--加一个id标签来表示每一个专栏， id=专栏id ，方便后面根据点击哪个修改哪个  -->
+                                <div th:id="${'columnId'+(iter.index+1)}" style="color: black !important;" class="ui labeled button m-margin-tb-tiny">
+                                    <div class="ui basic button" style="font-weight: bold !important;" th:text="${col.getName()}" th:classappend="${col.getId() == defaultColumnist.getId()}? 'teal':''">一年总结
+                                    </div>
+                                    <div class="ui basic  left pointing label" th:text="${col.getBlogCount()}" th:classappend="${col.getId() == defaultColumnist.getId()}? 'teal':''">12
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-
-                <div class="field right aligned">
-                    <button class="ui small teal basic button" onclick="search()"><i class="search icon"></i>搜索
-                    </button>
+                <!--右边的列表显示专栏对应的博客信息-->
+                <div id="table-container" class="eleven wide column " >
+                    <div class="ui attached segment " th:fragment="table_refresh">
+                    <div class="ui segment">
+                        <h3>专栏简介：</h3><p class="ui blue header" th:text="${defaultColumnist.getInfo()}">这个专栏好像还没有写简介欸，QAQ，快去告诉管理员吧！</p>
+                    </div>
+                    <!--总页数-->
+                    <input id="totalPages" type="hidden" name="totalPages" value="" th:value="${PageInfo.pages}">
+                    <!--当前显示的专栏ID-->
+                    <input type="hidden" name="columnId" value="" th:value="${defaultColumnist.getId()}">
+                    <!--显示博客信息-->
+                        <div  th:if="${PageInfo.getList().size()==0}"><h2>没有更多的博客啦！不过未来说不定会有哦！QAQ</h2></div>
+                        <!--循环显示博客信息-->
+                        <div class="ui padded segment vertical m-padded-b-small m-mobile-clear" th:each="blog,iter:${PageInfo.getList()}">
+                            <div class="ui grid mobile reversed stackable">
+                                <div class="ui eleven wide column">
+                                    <a th:href="@{'/blog_detail/'+${blog.getId()}}" target="InfoShow">
+                                        <h3 class="ui header" th:text="${blog.getTitle()}">【一年总结】记我的大一生活</h3>
+                                    </a>
+                                    <p class="m-text-thin m-text-lined m-text-spaced"  th:text="${blog.getSummary()}"></p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui list horizontal link mini ">
+                                                <div class="item hover-link" onclick="$('.ui.modal').modal('show');">
+                                                    <img src="/images/head.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">姜家伟</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>
+                                                    <span th:text="${#dates.format(blog.getPublishDate(),'yyyy-MM-dd')}">2020-7-04</span>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i><span th:text="${blog.getViews()}">3012</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="five wide column right aligned ">
+                                                <span>
+                                                    <a target="InfoShow" class="ui label teal basic m-padded-tiny"
+                                                       th:text="${defaultColumnist.getName()}">一年总结</a>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui five wide column m-padded-tb-large">
+                                    <a th:href="@{'/blog_detail/'+${blog.getId()}}" target="InfoShow" >
+                                        <img  class="ui round image " th:src="@{${blog.getBlogImg()}}" >
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!--个人信息弹出框-->
+                <div th:replace="~{index::popUp}"></div>
+                <!--底部-->
+                <div class="ui bottom attached segment">
+                    <div class="ui middle aligned grid two column">
+                        <div class="column">
+                            <a class="ui button basic mini teal" onclick="pre()" >上一页</a>
+                        </div>
+                        <div class="column right aligned">
+                            <a class="ui button basic mini teal" onclick="next()">下一页</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-        <div id="table-container">
-            <table th:fragment="table_refresh" th:id="id_table_refresh" class="ui table inverted celled center aligned">
-                <thread>
-                    <input type="hidden" name="maxPage" th:value="${PageInfo.getPages()}">
-                    <tr>
-                        <th>序号</th>
-                        <th>专栏名称</th>
-                        <th>博客数量</th>
-                        <th>专栏状态</th>
-                        <th>更新时间</th>
-                        <th>操作</th>
-                    </tr>
-                </thread>
-                <tbody>
-                <tr th:each="columnist,iter:${PageInfo.getList()}">
-                    <td th:text="${iter.index+1}">1</td>
-                    <td th:text="${columnist.getName()}">一年总结</td>
-                    <td th:text="${columnist.getBlogCount()}">3</td>
-                    <td id="1" th:id="${columnist.getId()}" th:if="${columnist.getState()== 1}">使用中</td>
-                    <td id="-1" th:id="${columnist.getId()}" th:if="${columnist.getState()== -1}">已删除</td>
-                    <td th:text="${#dates.format(columnist.getUpdateTime().getTime(),'yyyy-MM-dd HH:mm:ss')}">2020-7-04 15:12</td>
-                    <td>
-                        <a class="ui button  teal basic mini " th:href="@{'/admin/edit_columnist/'+${columnist.getId()}}">编辑</a>
-                        <a class="ui button  red basic mini " th:attr="data-id=${columnist.getId()}"
-                           onclick="deleteColumnist(this)">删除</a>
-                    </td>
-                </tr>
-
-
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="6">
-                        <div class="ui pagination menu mini">
-                            <a class="ui item " onclick="pre()">上一页</a>
-                            <a class="ui item " onclick="next()">下一页</a>
-                        </div>
-                        <a href="/admin/to_add_columnist" class="ui mini right floated teal basic button">新增</a>
-                    </th>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
     </div>
-</div>
-<br>
-<br>
+    <br>
+    <br>
 <!--底部footer-->
 <div th:replace="~{index::footer}"></div>
-
 
 <script src="/js/jquery-3.5.1.min.js"></script>
 <script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
 <script type="text/javascript">
 
-    // 导航菜单中
-    $("#b1").click(function () {
+    $("#b1").click(function (){
         $(".m-item").toggleClass("m-mobile-hide");
     });
-
-    $('.ui.dropdown').dropdown({
-        on: 'hover'
+    $('#payButton').popup({
+    popup:$('.popup.payQR'),
+    on:'click',
+    position:'bottom center'
     })
 
 
-    // 页面默认数据
+    //当前页码
     var currentPage = 1;
+    var totalPages = document.getElementById("totalPages").value;
 
-    // 搜索
+    //下一页
+    function next() {
+        totalPages = document.getElementById("totalPages").value;
+        if(currentPage < totalPages){
+            currentPage++;
+            loadData();
+        };
+    }
+
+    //上一页
+    function pre() {
+        totalPages = document.getElementById("totalPages").value;
+        if(currentPage > 1){
+            currentPage--;
+            loadData();
+        };
+    }
+
+    //搜索
     function search() {
         // 搜索重置当前页
         currentPage = 1;
         loadData();
     }
 
-    function next() {
-        if (currentPage >= $("[name='maxPage']").val()) {
-            return;
-        }
-        currentPage++;
-        loadData();
-    }
-
-    function pre() {
-        if (currentPage <= 1) {
-            currentPage = 1;
-            return;
-        }
-        currentPage--;
-        loadData();
-    }
 
     function loadData() {
         $.ajax({
-            url: "/admin/paging_query_columnist",
-            // type 专栏 分类
-            data: {"currentPage": currentPage, name: $("[name='name']").val()},
+            url: "/find_columnist_paging",
+            data: {"currentPage": currentPage,"columnId": $("[name='columnId']").val()},
             type: "get",
             success: function (result) {
-
-                // 只刷新博客展示部分，其他地方不变
-                // ajax返回数据的时候，页面模板只需要返回对应数据片段就可以
                 $("#table-container").html(result);
             }
         })
-    }
-
-    function deleteColumnist(button) {
-        var code = confirm("确定要删除这个专栏吗？");
-        if(code) {
-            $.ajax({
-                url: "/admin/delete_columnist",
-                data: {
-                    "id": $(button).attr("data-id"),
-                    "currentPage": currentPage, name: $("[name='name']").val(),
-                },
-                type: "delete",
-                success: function (result) {
-                    if (result == "success") {
-                        $("#" + $(button).attr("data-id")).text("已删除");
-                    } else {
-                        alert("删除失败！");
-                    }
-                    // $("#table-container").html(result);
-                }
-            })
-        }
     }
 
 </script>

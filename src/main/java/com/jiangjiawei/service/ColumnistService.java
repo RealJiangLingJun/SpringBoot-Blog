@@ -9,7 +9,9 @@ import java.util.Map;
 
 public interface ColumnistService {
 
-    List<Columnist> getAllColumnist();
+    Map<String,String> getAllColumnistMap();
+
+    List<Columnist> getAllColumnistList();
 
     PageInfo<Columnist> getColumnistPaging();
 
@@ -26,4 +28,6 @@ public interface ColumnistService {
     int updateColumnist(Columnist columnist);
 
     int selectBlogCountById(int columnId);
+
+    List<Columnist> getTopColumnist(int number);
 }

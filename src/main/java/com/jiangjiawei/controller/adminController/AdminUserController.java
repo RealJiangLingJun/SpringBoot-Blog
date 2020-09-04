@@ -1,4 +1,4 @@
-package com.jiangjiawei.controller;
+package com.jiangjiawei.controller.adminController;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.crypto.digest.DigestUtil;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-public class UserController {
+public class AdminUserController {
 
     @Autowired
     private UserService userService;
@@ -35,7 +35,7 @@ public class UserController {
             return "admin/login";
         }
         session.setAttribute("user",user);
-        return "redirect:/admin/admin_index";
+        return "redirect:/admin/admin_navigation";
     }
 
     //查看头像

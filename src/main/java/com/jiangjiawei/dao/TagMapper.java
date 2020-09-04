@@ -19,8 +19,10 @@ public interface TagMapper {
     List<Tag> findTagByIds(List<String> list);
 
     //增加标签信息
-    void insertTag(Tag tag);
+    int insertTag(Tag tag);
 
     //修改标签信息
-    void updateTag(Tag tag);
+    int updateTag(Tag tag);
+
+    List<Tag> getTopTags(int number);
 }

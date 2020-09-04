@@ -1,44 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b13fa77e-ecac-4560-b203-907ddf10a62b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/Closer.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/Mojito.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/不潮不用花钱.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/听妈妈的话.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/告白气球.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/失忆.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/孤独患者.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/情深深雨濛濛.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/想见你想见你想见你.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/春娇与志明.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img/爱的飞行日记.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/The Chainsmokers&amp;Halsey-Closer(靠近).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/傅如乔&amp;秦牛正威&amp;赵小棠&amp;张钰&amp;NINEONE#-想见你想见你想见你(练习室版).mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/刘崇健-失忆.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/周杰伦&amp;杨瑞代-爱的飞行日记.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/周杰伦-Mojito.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/周杰伦-听妈妈的话.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/周杰伦-告白气球.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/杨胖雨-情深深雨濛濛.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/林俊杰-不潮不用花钱.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/街道办GDC&amp;欧阳耀莹-春娇与志明.flac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/mp3/陈奕迅-孤独患者.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/admin_navigation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/columnist.html" afterDir="false" />
+    <list default="true" id="b13fa77e-ecac-4560-b203-907ddf10a62b" name="Default Changelist" comment="已完成对博客的基本改造，实现前端在展示时音乐不对频繁变化，并添加更对的音乐选择。">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/adminController/AdminCommentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/adminController/AdminTagController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/showController/ArchiveController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/showController/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/showController/ColumnistController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/showController/CommentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/showController/TagController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/ArchiveService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/ArchiveServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/utils/BlogUpdateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/typo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/baipiao.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/commonhead.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/qqQr.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/微信支付.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/支付宝.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/测试博客图片.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/security_code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/aboutMe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/comment_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/tag_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/tag_edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/tags.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/archives.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tag.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/jiangjiawei/dao/CommentDaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/CommentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/impl/CommentServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/utils/BlogUpdateUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/tag_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/tag_edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/tags.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/jiangjiawei/dao/CommentDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SpringBoot-Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SpringBoot-Blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b303f59e-5544-49f0-8ae8-2da617f9ab20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b303f59e-5544-49f0-8ae8-2da617f9ab20.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/css/player.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/css/player.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/js/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/musicPlayer/js/player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/adminController/AdminBlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/ColumnistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/adminController/AdminColumnistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/showController/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/controller/adminController/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/BlogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/BlogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/ColumnistMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/ColumnistMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/TagMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/TagMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/blogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/blogMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/columnistMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/columnistMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/commentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/commentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/tagMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/dao/tagMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/domain/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/domain/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/ColumnistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/ColumnistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/TagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/BlogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/BlogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/ColumnistServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/ColumnistServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/TagServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiangjiawei/service/impl/TagServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/myblog.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/myblog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/add_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/add_blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/add_columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/add_columnist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/admin_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/admin_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/admin_navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/admin_navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/columnist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit_blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit_columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit_columnist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/columnist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/controller/TestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/musicPlayer/css/player.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/musicPlayer/css/player.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jiangjiawei/dao/BlogDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jiangjiawei/dao/BlogDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jiangjiawei/dao/TagDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jiangjiawei/dao/TagDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/controller/BlogController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/controller/ColumnistController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/BlogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/BlogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/ColumnistMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/ColumnistMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/CommentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/CommentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/TagMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/TagMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/blogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/blogMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/columnistMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/columnistMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/commentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/commentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/tagMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/dao/tagMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/domain/Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/domain/Tag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/BlogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/BlogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/ColumnistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/ColumnistService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/TagService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/TagService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/impl/BlogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/impl/BlogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/impl/ColumnistServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/impl/ColumnistServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/impl/TagServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiangjiawei/service/impl/TagServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/myblog.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/myblog.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/musicPlayer/js/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/musicPlayer/js/player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/add_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/add_blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/add_columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/add_columnist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/admin_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/admin_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/admin_navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/admin_navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/columnist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/edit_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/edit_blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/edit_columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/edit_columnist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/columnist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/columnist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jiangjiawei/dao/BlogDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/jiangjiawei/dao/BlogDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jiangjiawei/dao/TagDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/jiangjiawei/dao/TagDaoTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +145,20 @@
         <item name="springbootblog@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="springbootblog: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="springbootblog@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="springbootblog: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="columnist: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="springbootblog@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="springbootblog: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="tag: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -122,7 +207,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/resources/templates/musicPlayer/css" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/musicPlayer/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -133,21 +218,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static\musicPlayer\img" />
-      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static\musicPlayer\mp3" />
-      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\templates\admin" />
+      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static\images" />
+      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static\js" />
       <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\templates" />
       <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static\css" />
+      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\templates\admin" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.jiangjiawei.service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static\images" />
       <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static\musicPlayer\mp3" />
       <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\templates" />
       <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\templates\musicPlayer\mp3" />
       <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\templates\musicPlayer\css\mp3" />
-      <recent name="D:\ideaprojects\SpringBoot-Blog\src\main\resources\static" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SpringBootBlogApplication">
@@ -181,11 +266,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MD5Test.MD5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentDaoTest.insertComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpringBoot-Blog" />
-      <option name="PACKAGE_NAME" value="com.jiangjiawei.hutool" />
-      <option name="MAIN_CLASS_NAME" value="com.jiangjiawei.hutool.MD5Test" />
-      <option name="METHOD_NAME" value="MD5" />
+      <option name="PACKAGE_NAME" value="com.jiangjiawei.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.jiangjiawei.dao.CommentDaoTest" />
+      <option name="METHOD_NAME" value="insertComment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -210,11 +295,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CommentDaoTest.insertComment" />
         <item itemvalue="JUnit.ColumnistDaoTest.insertColumnist" />
         <item itemvalue="JUnit.BlogDaoTest.testPaging" />
         <item itemvalue="JUnit.BlogDaoTest.insertBlogs" />
         <item itemvalue="JUnit.UserDaoTest.test_FindUserByCondition" />
-        <item itemvalue="JUnit.MD5Test.MD5" />
       </list>
     </recent_temporary>
   </component>
@@ -258,7 +343,8 @@
     <MESSAGE value="个人博客项目第三节课版本。&#10;1.对之前写好的dao层进行单元测试，通过&#10;2.引入项目首页，并调试，分析" />
     <MESSAGE value="个人博客项目第四节课版本，完成管理员登录界面和管理界面。" />
     <MESSAGE value="完成后台管理员博客管理，专栏管理部分，并在前端展示部分添加了音乐播放插件。&#10;这个里主要是做一个备份，在这之后会将前端展示页面进行修改，为是页面在跳转过程中音乐不会频繁变化。" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成后台管理员博客管理，专栏管理部分，并在前端展示部分添加了音乐播放插件。&#10;这个里主要是做一个备份，在这之后会将前端展示页面进行修改，为是页面在跳转过程中音乐不会频繁变化。" />
+    <MESSAGE value="已完成对博客的基本改造，实现前端在展示时音乐不对频繁变化，并添加更对的音乐选择。" />
+    <option name="LAST_COMMIT_MESSAGE" value="已完成对博客的基本改造，实现前端在展示时音乐不对频繁变化，并添加更对的音乐选择。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="452" y="91" key="#Inspections" timestamp="1598712423158">
@@ -269,10 +355,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="91" key="#Notifications/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598753032792" />
-    <state x="452" y="91" key="#Project_Structure" timestamp="1598328556001">
+    <state x="452" y="91" key="#Project_Structure" timestamp="1598926719424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="91" key="#Project_Structure/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598328556001" />
+    <state x="452" y="91" key="#Project_Structure/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598926719424" />
     <state x="552" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598104388254">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -281,91 +367,96 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="301" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598693248097" />
-    <state x="676" y="145" key="#com.intellij.ide.util.MemberChooser" timestamp="1598686081694">
+    <state x="676" y="145" key="#com.intellij.ide.util.MemberChooser" timestamp="1599209652081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="676" y="145" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598686081694" />
-    <state x="551" y="416" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598106270246">
+    <state x="676" y="145" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599209652081" />
+    <state x="551" y="416" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1599013590210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="551" y="416" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598106270246" />
+    <state x="551" y="416" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599013590210" />
     <state x="708" y="376" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1598106257846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="376" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598106257846" />
-    <state x="627" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598713119826">
+    <state x="687" y="309" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1598945824132">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="627" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598713119826" />
-    <state x="413" y="8" key="CommitChangelistDialog2" timestamp="1598769345125">
+    <state x="687" y="309" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598945824132" />
+    <state x="627" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599041627883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="8" key="CommitChangelistDialog2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598769345125" />
-    <state x="693" y="206" key="FileChooserDialogImpl" timestamp="1598754556448">
+    <state x="627" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599041627883" />
+    <state x="-1319" y="310" key="CommitChangelistDialog2" timestamp="1598969943579">
+      <screen x="-1366" y="310" width="1366" height="728" />
+    </state>
+    <state x="-1319" y="310" key="CommitChangelistDialog2/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598969943579" />
+    <state x="238" y="32" key="CommitChangelistDialog2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598769494033" />
+    <state x="693" y="206" key="FileChooserDialogImpl" timestamp="1598833231958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-873" y="426" key="FileChooserDialogImpl/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598536622729" />
-    <state x="693" y="206" key="FileChooserDialogImpl/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598754556448" />
-    <state width="1865" height="316" key="GridCell.Tab.0.bottom" timestamp="1598768903972">
+    <state x="693" y="206" key="FileChooserDialogImpl/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598833231958" />
+    <state width="1865" height="510" key="GridCell.Tab.0.bottom" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470187" />
-    <state width="1865" height="316" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="316" key="GridCell.Tab.0.center" timestamp="1598768903972">
+    <state width="1311" height="404" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398547" />
+    <state width="1865" height="510" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="510" key="GridCell.Tab.0.center" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470187" />
-    <state width="1865" height="316" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="316" key="GridCell.Tab.0.left" timestamp="1598768903972">
+    <state width="1311" height="404" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398547" />
+    <state width="1865" height="510" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="510" key="GridCell.Tab.0.left" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470187" />
-    <state width="1865" height="316" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="316" key="GridCell.Tab.0.right" timestamp="1598768903972">
+    <state width="1311" height="404" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398546" />
+    <state width="1865" height="510" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="510" key="GridCell.Tab.0.right" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470187" />
-    <state width="1865" height="316" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="316" key="GridCell.Tab.1.bottom" timestamp="1598768903972">
+    <state width="1311" height="404" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398547" />
+    <state width="1865" height="510" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="510" key="GridCell.Tab.1.bottom" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470188" />
-    <state width="1865" height="316" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="316" key="GridCell.Tab.1.center" timestamp="1598768903972">
+    <state width="1311" height="404" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398547" />
+    <state width="1865" height="510" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="510" key="GridCell.Tab.1.center" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.1.center/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470188" />
-    <state width="1865" height="316" key="GridCell.Tab.1.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="316" key="GridCell.Tab.1.left" timestamp="1598768903972">
+    <state width="1311" height="404" key="GridCell.Tab.1.center/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398547" />
+    <state width="1865" height="510" key="GridCell.Tab.1.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="510" key="GridCell.Tab.1.left" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.1.left/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470188" />
-    <state width="1865" height="316" key="GridCell.Tab.1.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="316" key="GridCell.Tab.1.right" timestamp="1598768903972">
+    <state width="1311" height="404" key="GridCell.Tab.1.left/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398547" />
+    <state width="1865" height="510" key="GridCell.Tab.1.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="510" key="GridCell.Tab.1.right" timestamp="1599210575499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1311" height="228" key="GridCell.Tab.1.right/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445470188" />
-    <state width="1865" height="316" key="GridCell.Tab.1.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598768903972" />
-    <state width="1865" height="332" key="GridCell.Tab.2.bottom" timestamp="1598668556834">
+    <state width="1311" height="404" key="GridCell.Tab.1.right/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1599141398547" />
+    <state width="1865" height="510" key="GridCell.Tab.1.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599210575499" />
+    <state width="1865" height="332" key="GridCell.Tab.2.bottom" timestamp="1598773014045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1311" height="208" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445469014" />
-    <state width="1865" height="332" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598668556834" />
-    <state width="1865" height="332" key="GridCell.Tab.2.center" timestamp="1598668556834">
+    <state width="1865" height="332" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598773014045" />
+    <state width="1865" height="332" key="GridCell.Tab.2.center" timestamp="1598773014045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1311" height="208" key="GridCell.Tab.2.center/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445469014" />
-    <state width="1865" height="332" key="GridCell.Tab.2.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598668556834" />
-    <state width="1865" height="332" key="GridCell.Tab.2.left" timestamp="1598668556834">
+    <state width="1865" height="332" key="GridCell.Tab.2.center/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598773014045" />
+    <state width="1865" height="332" key="GridCell.Tab.2.left" timestamp="1598773014045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1311" height="208" key="GridCell.Tab.2.left/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445469014" />
-    <state width="1865" height="332" key="GridCell.Tab.2.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598668556834" />
-    <state width="1865" height="332" key="GridCell.Tab.2.right" timestamp="1598668556834">
+    <state width="1865" height="332" key="GridCell.Tab.2.left/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598773014045" />
+    <state width="1865" height="332" key="GridCell.Tab.2.right" timestamp="1598773014045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1311" height="208" key="GridCell.Tab.2.right/0.0.1920.1040/-1366.310.1366.728@-1366.310.1366.728" timestamp="1598445469014" />
-    <state width="1865" height="332" key="GridCell.Tab.2.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598668556834" />
+    <state width="1865" height="332" key="GridCell.Tab.2.right/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598773014045" />
     <state x="482" y="107" key="Registry" timestamp="1598321802283">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -378,10 +469,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="345" y="0" key="SettingsEditor/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598321793892" />
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1598753293180">
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2" timestamp="1598769498661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598753293180" />
+    <state x="452" y="169" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598769498661" />
     <state x="733" y="281" key="chooseDestDirectoryDialog" timestamp="1598691400028">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -390,10 +481,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598003333650" />
-    <state x="577" y="297" key="com.intellij.ide.util.TipDialog" timestamp="1598262884500">
+    <state x="577" y="297" key="com.intellij.ide.util.TipDialog" timestamp="1599181074967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="577" y="297" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598262884500" />
+    <state x="577" y="297" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599181074967" />
     <state x="710" y="167" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1598344225363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -410,13 +501,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="642" y="75" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598179120489" />
-    <state x="532" y="237" key="run.anything.popup" timestamp="1598750501726">
+    <state x="532" y="237" key="run.anything.popup" timestamp="1598928404831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598750501726" />
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1598166250956">
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598928404831" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1599184274731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1598166250956" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/-1366.310.1366.728@0.0.1920.1040" timestamp="1599184274731" />
   </component>
 </project>

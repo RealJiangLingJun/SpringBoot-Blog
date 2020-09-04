@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="height: 100%">
 <head>
     <meta charset="UTF-8">
     <!--移动端的预览设置，用于适配移动端-->
@@ -11,24 +11,38 @@
     <link rel="stylesheet" href="/static/musicPlayer/css/player.css" th:href="@{/musicPlayer/css/player.css}">
     <title>后台管理</title>
 
+    <script text="javascript">
+        function addActive(num) {
+            console.log(num)
+            for( var i = 1 ;i<=4 ;i++){
+                if(i == num) {
+                    document.getElementById(i).setAttribute('class',"m-item item m-mobile-hide active");
+                    console.log(document.getElementById(i).className);
+                }else {
+                    document.getElementById(i).setAttribute('class', "m-item item m-mobile-hide");
+                }
+            }
+        }
+    </script>
+
 </head>
-<body id="body">
+<body id="body" style="height: 100%">
 <!--导航-->
 <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small" th:fragment="adminNav">
     <div th:replace="~{admin/admin_musicPlayer::musicPlayer}"></div>
     <div class="ui container">
         <div class="ui inverted secondary menu stackable">
-            <h2 class="ui teal header item">管理后台</h2>
-            <a href="/admin/admin_index" class="m-item item m-mobile-hide" th:classappend="${navIndex == 1}? 'active':''">
+            <h2 class="ui teal header item"><a href="/admin/admin_index" onclick="addActive(1)" target="InfoShow">管理后台</a></h2>
+            <a id="1" href="/admin/admin_index" class="m-item item m-mobile-hide active" onclick="addActive(1)" target="InfoShow">
                 <i class="home icon"></i>博客
             </a>
-            <a href="/admin/admin_columnist" class="m-item item m-mobile-hide" th:classappend="${navIndex == 2}? 'active':''">
+            <a id="2" href="/admin/admin_columnist" class="m-item item m-mobile-hide" onclick="addActive(2)" target="InfoShow">
                 <i class="idea icon"></i>分类
             </a>
-            <a href="/admin/tags" class="m-item item m-mobile-hide" th:classappend="${navIndex == 3}? 'active':''">
+            <a id="3" href="/admin/tags" class="m-item item m-mobile-hide" onclick="addActive(3)" target="InfoShow">
                 <i class="tags icon"></i>标签
             </a>
-            <a href="/admin/comments" class="m-item item m-mobile-hide" th:classappend="${navIndex == 4}? 'active':''">
+            <a id="4" href="/admin/comments" class="m-item item m-mobile-hide" onclick="addActive(4)" target="InfoShow">
                 <i class="comment icon"></i>评论管理
             </a>
             <div class="right menu">
@@ -97,6 +111,90 @@
     </div>
 </div>
 
+
+
+<div id="InfoShow" style="height: 100%">
+    <iframe name="InfoShow" th:src="@{/admin/admin_index}" frameborder="0" width="100%" height="100%"></iframe>
+</div>
+
+
+
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
+<script type="text/javascript">
+
+    $("#b1").click(function () {
+        $(".m-item").toggleClass("m-mobile-hide");
+    });
+
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    })
+
+    //当前页码
+    var currentPage = 1;
+    var totalPages = document.getElementById("totalPages").value;
+
+    var size = 6;
+    var begin = 0;
+
+    //搜索
+    function search() {
+        // 搜索重置当前页
+        currentPage = 1;
+        loadData();
+    }
+
+    //下一页
+    function next() {
+        totalPages = document.getElementById("totalPages").value;
+        if(currentPage < totalPages){
+            currentPage++;
+            loadData();
+        };
+    }
+
+    //上一页
+    function pre() {
+        totalPages = document.getElementById("totalPages").value;
+        if(currentPage > 1){
+            currentPage--;
+            loadData();
+        };
+    }
+
+    function loadData() {
+        $.ajax({
+            url: "/admin/paging_query_blog",
+            data: {"currentPage": currentPage, title: $("[name='title']").val(), columnId: $("[name='columnId']").val(),},
+            type: "get",
+            success: function (result) {
+                $("#table-container").html(result);
+            }
+        })
+    }
+
+    function deleteBlog(button) {
+        var code = confirm("确定要删除这个博客吗？");
+        if(code) {
+            $.ajax({
+                url: "/admin/delete_blog",
+                data: {"id": $(button).attr("data-id")},
+                type: "delete",
+                success: function (result) {
+                    if (result == "success") {
+                        $("#" + $(button).attr("data-id")).text("已删除");
+                    } else {
+                        alert("删除失败！");
+                    }
+                }
+            })
+        }
+    }
+
+
+</script>
 
 </body>
 </html>

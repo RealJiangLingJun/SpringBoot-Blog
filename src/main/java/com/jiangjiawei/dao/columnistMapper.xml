@@ -105,4 +105,10 @@
         </set>
         WHERE id = #{id}
     </update>
+
+    <!--获取专栏中博客数量前 几个 的标签展示在首页中-->
+    <select id="getTopColumnist" parameterType="int" resultMap="columnistMap">
+        select * from columnist where state = 1 order by blog_count desc limit 0,#{number};
+    </select>
+
 </mapper>

@@ -1,4 +1,4 @@
-package com.jiangjiawei.controller;
+package com.jiangjiawei.controller.adminController;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.ObjectUtil;
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,10 +22,10 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/admin")
-public class BlogController {
+public class AdminBlogController {
 
     //一页显示的数据
-    private static final int SIZE = 8;
+    private static final int SIZE = 10;
 
     @Autowired
     private ColumnistService columnistService;
@@ -37,13 +36,23 @@ public class BlogController {
     @Autowired
     private BlogService blogService;
 
-
     //前往管理员操作页面
+    @GetMapping("/admin_navigation")
+    public String adminNavigation(){
+        return "admin/admin_navigation";
+    }
+
+
     @GetMapping("/admin_index")
     public String admin_index(Model model){
         //在管理员界面展示需要 所有博客信息 分类信息
-        List<Columnist> columnists = columnistService.getAllColumnist().subList(1,columnistService.getAllColumnist().size());
-        model.addAttribute("Columnists",columnists);
+        //map<专栏id，专栏name>
+        Map<String,String> columnistsMap = columnistService.getAllColumnistMap();
+        System.out.println(columnistsMap.toString());
+        model.addAttribute("ColumnistsMap",columnistsMap);
+        //所有的专栏信息
+        List<Columnist> columnistsList = columnistService.getAllColumnistList();
+        model.addAttribute("ColumnistsList",columnistsList);
         //默认显示的记录
         PageHelper.startPage(1,SIZE);
         PageInfo<Blog> pageInfo = blogService.getBlogPaging();
@@ -58,7 +67,7 @@ public class BlogController {
     @GetMapping("/to_add_blog")
     public String toAddBlog(Model model){
         //在添加博文之前，需要得到专栏信息，标签信息
-        model.addAttribute("Columnists",columnistService.getAllColumnist().subList(1,columnistService.getAllColumnist().size()));
+        model.addAttribute("ColumnistsList",columnistService.getAllColumnistList());
         model.addAttribute("Tags",tagService.getAllTag());
 
         return "admin/add_blog";
@@ -71,18 +80,9 @@ public class BlogController {
             //博文为空的情况，正常是要报错
             return "/admin_index";
         }
-        //设置更新时间
-        blog.setCreateTime(new Date());
-        //判断是否为发布请求 博客状态 -1 删除 0 草稿 1 发布
-        if(Convert.toInt(state) == 0){//草稿
-            blog.setBlogState(-1);
-        }else if(Convert.toInt(state) == 1){//已发布
-            blog.setBlogState(1);
-            blog.setPublishDate(new Date());
-        }
         System.out.println(blog.toString());
         //添加博文
-        int statCode = blogService.addBlog(blog);
+        int statCode = blogService.addBlog(blog,state);
         if(statCode < 1){
             //添加博文失败，正常是要报错
             System.out.println("添加博文失败");
@@ -103,8 +103,14 @@ public class BlogController {
 
         model.addAttribute("PageInfo",pageInfo);
         model.addAttribute("Blogs",pageInfo.getList());
-        List<Columnist> columnists = columnistService.getAllColumnist().subList(1,columnistService.getAllColumnist().size());
-        model.addAttribute("Columnists",columnists);
+
+        //map<专栏id，专栏name>
+        Map<String,String> columnistsMap = columnistService.getAllColumnistMap();
+        System.out.println(columnistsMap.toString());
+        model.addAttribute("ColumnistsMap",columnistsMap);
+        //所有的专栏信息
+        List<Columnist> columnistsList = columnistService.getAllColumnistList();
+        model.addAttribute("ColumnistsList",columnistsList);
 
         return "admin/admin_index::table_refresh";
     }
@@ -128,7 +134,7 @@ public class BlogController {
 
         }
         if (flag) {//
-            model.addAttribute("Columnists",columnistService.getAllColumnist().subList(1,columnistService.getAllColumnist().size()));
+            model.addAttribute("ColumnistsList",columnistService.getAllColumnistList());
             model.addAttribute("Tags",tagService.getAllTag());
             model.addAttribute("Blog",blog);
             return "admin/edit_blog";
@@ -147,22 +153,9 @@ public class BlogController {
             //博文为空的情况，正常是要报错
             return "/admin/admin_index";
         }
-        //设置更新时间
-        blog.setCreateTime(new Date());
-        //判断是否为发布请求 博客状态 -1 删除 0 草稿 1 发布
-        blog.setBlogState(Convert.toInt(state));
-        if(Convert.toInt(state) == 0){//草稿
-        }else if(Convert.toInt(state) == 1){//已发布
-            blog.setPublishDate(new Date());
-        }else if(Convert.toInt(state) == 2){//取消发布
-            blog.setBlogState(0);
-            blog.setPublishDate(null);
-        }else if(Convert.toInt(state) == -1){//取消删除
-            blog.setBlogState(0);
-        }
-        System.out.println(blog.toString());
+
         //修改博文
-        int statCode = blogService.updateBlog(blog);
+        int statCode = blogService.updateBlog(blog,state);
         if(statCode < 1){
             //修改博文失败，正常是要报错
             System.out.println("修改博文失败QAQ，需要记录日志，");

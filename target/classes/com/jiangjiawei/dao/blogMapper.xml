@@ -41,6 +41,7 @@
     </select>
     
     <!-- 根据条件参数查询数据列表 -->
+    <!-- 这里有一个很大的问题 ，就是要查询博客对应的标签时采用的是 模糊查询的方式，但是标签id的存放方式是字符串的形式，之间用逗号隔开，所以在使用模糊查询时会造成多查的问题 -->
     <select id="findBlogByCondition" resultMap="blogMap" parameterType="map">
         SELECT
         <include refid="allColumns" />
@@ -186,5 +187,12 @@
         <if test="columnId != null and columnId != ''">
             AND column_id = #{columnId}
         </if>
+    </select>
+    
+    <!--查询最新的博客-->
+    <select id="getNewBlog" resultMap="blogMap" parameterType="int">
+        select
+        <include refid="allColumns" />
+        from blog b where blog_state = 1 order by b.publish_date desc limit #{number};
     </select>
 </mapper>

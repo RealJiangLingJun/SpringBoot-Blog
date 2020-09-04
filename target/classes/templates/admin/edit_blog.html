@@ -16,7 +16,7 @@
 </head>
 <body>
 <!--导航-->
-<div th:replace="~{admin/admin_index::adminNav}"></div>
+<!--<div th:replace="~{admin/admin_index::adminNav}"></div>-->
 
 <!--二级导航-->
 <div class="ui menu attached inverted ">
@@ -28,7 +28,7 @@
 <!--中间内容-->
 <div class="m-container-small m-padded-tb-big" style="padding-bottom: 0em !important; margin-bottom: 0em !important;">
     <div class="ui container">
-        <form action="/admin/update_blog" method="post" target="_blank" class="ui form">
+        <form action="/admin/update_blog" method="post" target="InfoShow" class="ui form">
             <!--用此种方式可以把提交方式变成put，原理就是SpringBoot默认维护了一个WebMvcAutoConfiguration，其中如果有_method就改变请求方式
              不过SpringBoot项目得在配置中开启，默认是关闭的 spring.mvc.hiddenmethod.filter.enabled=true-->
             <!--            <input type="hidden" name="_method" th:value="${method}"/>-->
@@ -95,7 +95,7 @@
                         <i class="ui dropdown icon"></i>
                         <div class="default text">分类</div>
                         <div class="menu">
-                            <div class="item" th:each="c,iterStat:${Columnists}" th:data-value="${c?.getId()}"
+                            <div class="item" th:each="c,iterStat:${ColumnistsList}" th:data-value="${c?.getId()}"
                                  th:text="${c?.getName()}"></div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
 <br>
 <br>
 <!--底部footer-->
-<div th:replace="~{index::footer}"></div>
+<!--<div th:replace="~{index::footer}"></div>-->
 
 
 <script th:src="@{/js/jquery-3.5.1.min.js}"></script>

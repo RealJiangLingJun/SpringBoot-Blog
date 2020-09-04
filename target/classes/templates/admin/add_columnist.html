@@ -15,7 +15,7 @@
 </head>
 <body>
 <!--导航-->
-<div th:replace="~{admin/admin_index::adminNav}"></div>
+<!--<div th:replace="~{admin/admin_index::adminNav}"></div>-->
 
 <!--二级导航-->
 <div class="ui menu attached inverted ">
@@ -30,7 +30,7 @@
         <br>
         <br>
         <br>
-        <form action="/admin/add_columnist" class="ui form segment inverted" method="post">
+        <form action="/admin/add_columnist" target="InfoShow" class="ui form segment inverted" method="post">
             <!--            <input type="hidden" name="_method" th:value="${method}">-->
             <div class="fields inline">
                 <div class="field">
@@ -42,8 +42,9 @@
                 </div>
             </div>
             <div class="field required">
-                <textarea name="intro" placeholder="专栏简介"></textarea>
+                <textarea name="info" placeholder="专栏简介"></textarea>
             </div>
+            <div class="ui error message"></div>
         </form>
     </div>
 </div>
@@ -51,7 +52,7 @@
 <br>
 <br>
 <!--底部footer-->
-<div th:replace="~{index::footer}"></div>
+<!--<div th:replace="~{index::footer}"></div>-->
 
 
 <script src="/js/jquery-3.5.1.min.js"></script>
@@ -74,7 +75,14 @@
                 identifier: 'name',
                 rules: [{
                     type: 'empty',
-                    prompt: '标题：请输入博客标题'
+                    prompt: '标题：请输入专栏标题'
+                }]
+            },
+            info: {
+                identifier: 'info',
+                rules: [{
+                    type: 'empty',
+                    prompt: '专栏简介：请输入专栏简介'
                 }]
             }
         }

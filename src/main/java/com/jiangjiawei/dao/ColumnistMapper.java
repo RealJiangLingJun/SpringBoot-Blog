@@ -24,4 +24,6 @@ public interface ColumnistMapper {
     //修改栏目信息
     int updateColumnist(Columnist columnist);
 
+    List<Columnist> getTopColumnist(int number);
+
 }

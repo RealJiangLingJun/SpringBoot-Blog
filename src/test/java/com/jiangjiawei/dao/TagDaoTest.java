@@ -37,11 +37,11 @@ public class TagDaoTest {
 
     @Test
     public void test_insertTag(){
-        tagMapper.insertTag(new Tag(2,"Java",1024,new Date()));
+        tagMapper.insertTag(new Tag(2,"Java",1024,1,new Date()));
     }
 
     @Test
     public void test_updateTag(){
-        tagMapper.updateTag(new Tag(1,"科创板",100,new Date()));
+        tagMapper.updateTag(new Tag(1,"科创板",100,1,new Date()));
     }
 }
