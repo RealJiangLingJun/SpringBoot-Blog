@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--移动端的预览设置，用于适配移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/Semantic-UI-CSS-master/semantic.min.css">
+    <link rel="stylesheet" href="/css/myblog.css">
+    <title>后台管理</title>
+</head>
+<body>
+
+<!--中间内容-->
+<br>
+<br>
+<br>
+<br>
+<div class=" m-padded-tb-big">
+    <div class="ui container">
+        <div class="ui grid rounded mobile stackable">
+            <div class="eleven wide column transparent">
+                <div class="ui segment transparent" style="background: space;color: #FF0000;!important;" >
+                    <h1>很抱歉，程序可能遇到了点问题！QAQ</h1>
+                    <h1>快去报告给管理员小哥哥吧！</h1>
+                    <hr>
+                    <h1>错误信息：</h1>
+                    <h1 th:text="'Failed Request URL : '+${url}" ></h1>
+                    <h1 th:text="'Exception message :'+${exception.message}" ></h1>
+                </div>
+            </div>
+            <div class="five wide column rounded">
+                <!--二维码-->
+                <div class="ui horizontal divider header" style="color: #FF0000">联系管理员</div>
+                <div class="ui card centered" style="width: 11em">
+                    <img src="/images/jjw.jpg" alt="" class="ui rounded image">
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<div th:replace="~{index::footer}"></div>
+
+
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
+<script type="text/javascript">
+    // $('.menu.toggle').click(function (){
+    //     $('.m-item').toggleClass('m-mobile-hide');
+    // });
+    //不知道为什么达不到预期的效果
+    $("#b1").click(function (){
+        $(".m-item").toggleClass("m-mobile-hide");
+    });
+    $('#payButton').popup({
+        popup:$('.popup.payQR'),
+        on:'click',
+        position:'bottom center'
+    });
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    })
+</script>
+</body>
+</html>

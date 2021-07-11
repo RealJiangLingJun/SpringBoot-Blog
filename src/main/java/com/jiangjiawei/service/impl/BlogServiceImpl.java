@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -97,6 +98,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<Blog> findBlogByConditionByPublishdate() {
+        return blogMapper.findBlogByConditionByPublishdate();
+    }
+
+    @Override
     @Transactional//开启事务
     //更新博客
     public int updateBlog(Blog blog,String state) {
@@ -107,7 +113,7 @@ public class BlogServiceImpl implements BlogService {
 
         //先查出原博客的所有信息
         List<String> list = new ArrayList<>();
-        list.add(blog.getId()+"");
+        list.add(blog.getId() + "");
         Blog oldBlog = blogMapper.findBlogByIds(list).get(0);
         //原博客状态信息
         int oldState = oldBlog.getBlogState();
@@ -120,30 +126,34 @@ public class BlogServiceImpl implements BlogService {
         //设置新博客更新时间
         blog.setCreateTime(new Date());
 
-        if(oldState == 1){//原博客已发布
+        //对state进行判断，若state为空，默认为0
+        if(state == null) {
+            state = "0";
+        }
+        if (oldState == 1) {//原博客已发布
             //先对原博客专栏、标签减1
-            updateColumnistsAndTagsInfo(oldBlog,false);
-            if(Convert.toInt(state) == 2){//取消发布
+            updateColumnistsAndTagsInfo(oldBlog, false);
+            if (Convert.toInt(state) == 2) {//取消发布
                 blog.setBlogState(0);
                 blog.setPublishDate(null);
-            }else if(Convert.toInt(state) == 0){//保存
+            } else if (Convert.toInt(state) == 0) {//保存
                 blog.setBlogState(1);
-                updateColumnistsAndTagsInfo(blog,true);
+                updateColumnistsAndTagsInfo(blog, true);
             }
-        }else if(oldState == -1){//原博客已删除
-            if(Convert.toInt(state) == -1){//取消删除
+        } else if (oldState == -1) {//原博客已删除
+            if (Convert.toInt(state) == -1) {//取消删除
                 blog.setBlogState(0);
                 blog.setPublishDate(null);
-            }else if(Convert.toInt(state) == 0){//保存
+            } else if (Convert.toInt(state) == 0) {//保存
                 blog.setBlogState(-1);
                 blog.setPublishDate(null);
             }
-        }else if(oldState == 0){//原博客为草稿
-            if(Convert.toInt(state) == 1){//发布
+        } else if (oldState == 0) {//原博客为草稿
+            if (Convert.toInt(state) == 1) {//发布
                 blog.setBlogState(1);
                 blog.setPublishDate(new Date());
-                updateColumnistsAndTagsInfo(blog,true);
-            }else if(Convert.toInt(state) == 0){//保存
+                updateColumnistsAndTagsInfo(blog, true);
+            } else if (Convert.toInt(state) == 0) {//保存
                 blog.setBlogState(0);
                 blog.setPublishDate(null);
             }
@@ -183,13 +193,15 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    //这个方法用来增加博客的浏览量
-    public int addViews(String blogId) {
+    //这个方法用来增加博客的浏览量,并设置最后访问时间，访问者 IP
+    public int addViews(String blogId,String ip) {
         List<String> list = new ArrayList<>();
         list.add(blogId);
         Blog blog = blogMapper.findBlogByIds(list).get(0);
 
         blog.setViews((blog.getViews() == null)?0:blog.getViews()+1);
+        //设置最后访问时间
+        blog.setComments(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"-"+ip);
 
         return blogMapper.updateBlog(blog);
     }

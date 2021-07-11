@@ -78,7 +78,7 @@ public class AdminBlogController {
     public String addBlog(Blog blog,String state){
         if(ObjectUtil.isEmpty(blog)){
             //博文为空的情况，正常是要报错
-            return "/admin_index";
+            return "admin/admin_index";
         }
         System.out.println(blog.toString());
         //添加博文
@@ -151,7 +151,7 @@ public class AdminBlogController {
     public String upadteBlog(Blog blog, String state){
         if(ObjectUtil.isEmpty(blog)){
             //博文为空的情况，正常是要报错
-            return "/admin/admin_index";
+            return "admin/admin_index";
         }
 
         //修改博文

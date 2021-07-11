@@ -55,6 +55,6 @@ public class ArchiveController {
         Map<Integer,List<Blog>> years = archiveService.getMapKeyIsYear(blogList);
         model.addAttribute("years",years);
 
-        return "/archives";
+        return "archives";
     }
 }

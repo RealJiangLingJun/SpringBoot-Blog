@@ -148,14 +148,14 @@
         <div th:replace="~{musicPlayer::musicPlayer}"></div>
         <div class="ui container">
             <div class="ui inverted secondary menu stackable">
-                <h2 class="ui teal header item"><a href="/index" onclick="addActive(1)" target="InfoShow">家伟'Blog</a></h2>
+                <h2 class="ui teal header item"><a href="/index" onclick="addActive(1)" target="InfoShow">姜家伟的个人博客</a></h2>
                 <a id="1" href="/index" class="m-item item m-mobile-hide active" onclick="addActive(1)" target="InfoShow"><i class="home icon"></i>首页</a>
                 <a id="2" href="/columnist" class="m-item item m-mobile-hide" onclick="addActive(2)" target="InfoShow"><i class="idea icon"></i>专栏</a>
                 <a id="3" href="/tag" class="m-item item m-mobile-hide" onclick="addActive(3)" target="InfoShow"><i class="tags icon"></i>标签</a>
                 <a id="4" href="/archives" class="m-item item m-mobile-hide" onclick="addActive(4)" target="InfoShow"><i class="clone icon"></i>归档</a>
                 <a id="5" href="/aboutMe" class="m-item item m-mobile-hide" onclick="addActive(5)" target="InfoShow"><i class="info icon"></i>作者信息</a>
                 <div class="m-item right item  m-mobile-hide">
-                    <a href="http://localhost:8090/login" target="_blank" class="m-item item m-mobile-hide m-padded">
+                    <a th:href="@{/login}" target="_blank" class="m-item item m-mobile-hide m-padded">
                         <img  src="images/head.jpg" class="ui avatar image">
                         管理员登录
                     </a>
@@ -169,7 +169,9 @@
     </nav>
 
     <div id="InfoShow" style="height: 100%">
-        <iframe name="InfoShow" th:src="@{/index}" frameborder="0" width="100%" height="100%"></iframe>
+        <iframe name="InfoShow" th:src="@{/index}" frameborder="0" width="100%" height="100%">
+
+        </iframe>
     </div>
 
 <!--    <iframe src="index.html" id="iframepage" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onLoad="iFrameHeight()"></iframe>-->

@@ -27,7 +27,7 @@
             <div class="ui list horizontal link  ">
                 <div class="item" onclick="$('#popUpLayer1').modal('show');">
                     <img th:src="@{/images/head.jpg}" class="ui avatar image" style="height: 40px;width: 40px">
-                    <div class="content"><a href="#" class="header">姜家伟</a></div>
+                    <div class="content"><a class="header">姜家伟</a></div>
                 </div>
                 <div class="item">
                     <i class="calendar icon"></i><span
@@ -40,7 +40,7 @@
         </div>
         <!--图片区域-->
         <div class="ui attached segment ">
-            <img th:src="@{${blog.getBlogImg()}}" class="ui fluid image rounded m-opacity-no">
+            <img th:src="@{${blog.getBlogImg()}}" referrerpolicy="no-referrer" class="ui fluid image rounded m-opacity-no">
         </div>
         <!--内容-->
         <div class="ui attached segment padded ">
@@ -48,29 +48,10 @@
 
             <h2 class="ui header center aligned" th:text="${blog.getTitle()}">【一年总结】记我的大一生活</h2>
 
-            <div class="ui grid segment basic two column">
-
-                <div class="ui  segment basic  column twelve wide">
-                    <div>
-                        分类专栏：
-                        <div class="ui  basic teal left pointing label" th:text="${blog.getColumnId()}">
-                            一年总结
-                        </div>
-                    </div>
-                    <br>
-                    <div>
-                        文章标签：
-                        <!--                            th:each="tag,iter:${blog.getTags()}" th:text="${tag.getName()}-->
-                        <div class="ui  basic teal left pointing label">一年总结</div>
-                    </div>
-
-                </div>
-                <div class="ui right aligned segment basic column four wide">
-                    <div class="ui label orange basic">原创</div>
-                </div>
-            </div>
-
             <br>
+            <br>
+            <br>
+
             <div id="content" class="typo typo-selection m-padded-lr-responsive m-text-lined js-toc-content"
                  th:utext="${blog.getContent()}">
             </div>
@@ -98,16 +79,16 @@
         <div id="popUpLayer2" class="ui modal">
             <i class="close icon"></i>
             <div class="header">
-                白嫖的危害
+                居然是要白嫖
             </div>
             <div class="image content">
                 <div class="ui medium image">
                     <img src="/images/baipiao.PNG" style="width: 400px">
                 </div>
                 <div class="description">
-                    <div class="ui header">你的支持和关注永远是创作者的最大动力</div>
-                    <p>自古以来白嫖都是一件十分不文明的行为，白嫖通常只有0次或无数次。</p>
-                    <p>希望此刻的你能改邪归正，从此杜绝白嫖！</p>
+                    <div class="ui header">不会吧不会吧，不会真的有人要白嫖吧</div>
+                    <p>真是不可原谅，居然是要白嫖</p>
+<!--                    <p>希望此刻的你能改邪归正，从此杜绝白嫖！</p>-->
                     <p>友情链接：<a href="" th:href="@{https://search.bilibili.com/video?keyword=%E7%99%BD%E5%AB%96%E7%9A%84%E5%8D%B1%E5%AE%B3}">白嫖的危害</a></p>
                 </div>
             </div>
@@ -142,11 +123,11 @@
                     <div class="comment" th:each="comment,iter:${Comments}">
                         <a class="ui avatar image ">
                             <img class="ui avatar image"
-                                 th:src="${comment.getBloggerState() == 1}?'/images/head.jpg':'/images/commonhead.jpg'">
+                                 th:src="${comment.getBloggerState() == '1'}?'/images/head.jpg':'/images/commonhead.jpg'">
                         </a>
                         <div class="content">
                             <a class="author" th:text="${comment.getReplyName()+'-'+comment.getReplyEmail()}">Matt</a>
-                            <div class="ui  basic teal mini label " th:if="${comment.getBloggerState() == 1}">博主</div>
+                            <div class="ui  basic teal mini label " th:if="${comment.getBloggerState() == '1'}">博主</div>
                             <div class="metadata">
                                 <span class="date" th:text="${#dates.format(comment.getPublishDate().getTime(),'yyyy-MM-dd HH:mm:ss')}">Today at 5:42PM</span>
                             </div>
@@ -206,7 +187,7 @@
 
     <div id="toTop-button" class="ui icon button "><i class="ui chevron up icon"></i></div>
     <button id="menuButton" type="button" class="ui button teal">目录</button>
-    <a href="#comment-container" class="ui button teal">留言</a>
+    <a href="#comment-container" target="InfoShow" class="ui button teal">留言</a>
 
 </div>
 <div id="catalogue" class="ui flowing  popup transition hidden " data-position="left" style="width: 250px !important; ">

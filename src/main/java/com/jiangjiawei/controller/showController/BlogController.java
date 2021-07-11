@@ -11,6 +11,7 @@ import com.jiangjiawei.service.BlogService;
 import com.jiangjiawei.service.ColumnistService;
 import com.jiangjiawei.service.CommentService;
 import com.jiangjiawei.service.TagService;
+import com.jiangjiawei.utils.IpUtil;
 import com.jiangjiawei.utils.MarkdownUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +31,7 @@ import java.util.Map;
 public class BlogController {
 
     //一页显示的数据
-    private static final int SIZE = 10;
+    private static final int SIZE = 7;
 
     @Autowired
     private BlogService blogService;
@@ -49,6 +51,7 @@ public class BlogController {
 
         //需要获得 博客信息，专栏信息前10个、标签信息前10个
         //获取前 n 个 专栏信息
+//        System.out.println("调用 --》 columnistService.getTopColumnist(10);");
         List<Columnist> columnists = columnistService.getTopColumnist(10);
         model.addAttribute("Columnists",columnists);
 
@@ -81,7 +84,7 @@ public class BlogController {
     public String navigation(Model model){
         //设置导航标签
         model.addAttribute("navIndex",1);
-        return "/navigation";
+        return "navigation";
     }
 
 
@@ -91,10 +94,14 @@ public class BlogController {
     @GetMapping("/find_blog_paging")
     public String findBlogPaging(@RequestParam Map<String,Object> map, Model model){
 
+        String orderBy = "b.publish_date desc";//按照（数据库）排序字段 倒序 排序
+
         //PageInfo分页管理的bean
         PageHelper.startPage(Convert.toInt(map.get("currentPage")),SIZE);
+//        PageHelper.orderBy("order by b.publish_date desc");
         map.put("blogState",1);//分页时添加限制条件
         List<Blog> blogList = blogService.getBlogByCondition(map);
+//        List<Blog> blogList = blogService.findBlogByConditionByPublishdate(map);
         PageInfo<Blog> pageInfo=new PageInfo(blogList);
 
         model.addAttribute("PageInfo",pageInfo);
@@ -112,17 +119,20 @@ public class BlogController {
 
     //查看博客
     @GetMapping("/blog_detail/{id}")
-    public String blogDetail(@PathVariable String id,Model model){
+    public String blogDetail(@PathVariable String id, Model model, HttpServletRequest request){
 
-        System.out.println(id);
+//        System.out.println(id);
+        String ip = IpUtil.getIpAddr(request);
+        System.out.println("访客地址："+ ip);
         Blog blog = blogService.getBlogById(id);
         if(blog == null){
             System.out.println("找不到博客！这里因该报错！");
+
         }
 
         //这里访问到了博客文章，所以这里就要对博客的浏览量+1
         blog.setViews((blog.getViews() == null)?0:blog.getViews()+1);
-        int state = blogService.addViews(blog.getId()+"");
+        int state = blogService.addViews(blog.getId()+"",ip);
         if(state != 1){
             System.out.println("博客的浏览量更新失败，需要报错！");
         }

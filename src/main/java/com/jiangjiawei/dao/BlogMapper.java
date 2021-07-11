@@ -15,6 +15,9 @@ public interface BlogMapper {
     //根据条件查询符合条件的Blog
     List<Blog> findBlogByCondition(Map<String,Object> map);
 
+    //根据条件查询符合条件的Blog,但是加上了排序
+    List<Blog> findBlogByConditionByPublishdate();
+
     //根据多个ID查找Blog
     List<Blog> findBlogByIds(List<String> list);
 
@@ -28,4 +31,6 @@ public interface BlogMapper {
     int selectBlogCountById(int columnId);
 
     List<Blog> getNewBlog(int number);
+
+
 }

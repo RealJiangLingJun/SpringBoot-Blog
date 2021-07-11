@@ -98,7 +98,7 @@
                                         <div class="eleven wide column">
                                             <div class="ui list horizontal link mini ">
                                                 <div class="item hover-link" onclick="$('.ui.modal').modal('show');">
-                                                    <img src="/images/head.jpg" class="ui avatar image">
+                                                    <img src="/images/head.jpg" referrerpolicy="no-referrer" class="ui avatar image">
                                                     <div class="content"><a class="header">姜家伟</a></div>
                                                 </div>
                                                 <div class="item">
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="ui five wide column m-padded-tb-large">
                                     <a th:href="@{'/blog_detail/'+${blog.getId()}}" target="InfoShow" >
-                                        <img  class="ui round image " th:src="@{${blog.getBlogImg()}}" >
+                                        <img  class="ui round image " referrerpolicy="no-referrer" th:src="@{${blog.getBlogImg()}}" >
                                     </a>
                                 </div>
                             </div>

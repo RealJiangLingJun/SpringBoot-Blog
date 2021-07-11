@@ -24,6 +24,7 @@ public interface ColumnistMapper {
     //修改栏目信息
     int updateColumnist(Columnist columnist);
 
+    //获取专栏中博客数排名前几的专栏
     List<Columnist> getTopColumnist(int number);
 
 }

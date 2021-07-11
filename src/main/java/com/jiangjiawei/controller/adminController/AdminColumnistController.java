@@ -55,7 +55,7 @@ public class AdminColumnistController {
 
         //设置导航标签
         model.addAttribute("navIndex",2);
-        return "/admin/columnist";
+        return "admin/columnist";
     }
 
     //分页查询
@@ -93,7 +93,7 @@ public class AdminColumnistController {
     //前往新增专栏
     @GetMapping("/to_add_columnist")
     public String toAddColumnist(){
-        return "/admin/add_columnist";
+        return "admin/add_columnist";
     }
 
 
@@ -124,7 +124,7 @@ public class AdminColumnistController {
 
         model.addAttribute("columnist",columnist);
 
-        return "/admin/edit_columnist";
+        return "admin/edit_columnist";
     }
 
 

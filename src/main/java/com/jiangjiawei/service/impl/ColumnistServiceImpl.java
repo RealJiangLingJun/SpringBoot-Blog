@@ -91,6 +91,7 @@ public class ColumnistServiceImpl implements ColumnistService {
 
     @Override
     public List<Columnist> getTopColumnist(int number) {
+        System.out.println("调用 --》columnistMapper.getTopColumnist(number);");
         return columnistMapper.getTopColumnist(number);
     }
 

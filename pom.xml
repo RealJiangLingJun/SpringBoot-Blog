@@ -79,7 +79,7 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.13</version>
+            <version>1.3.0</version>
         </dependency>
 
         <!--        测试-->
@@ -135,14 +135,30 @@
     <build>
         <!--处理打包问题，解决项目在打包时没有将mapper.xml文件打包到项目中-->
         <!--指定src/main/java 目录下的全部xml文件都打包到jar包中-->
+<!--        <resources>-->
+<!--            <resource>-->
+<!--            <directory>src/main/java</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/*.xml</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--        </resources>-->
+
         <resources>
             <resource>
-            <directory>src/main/java</directory>
+                <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
             </resource>
-        </resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+    </resources>
+
 
         <plugins>
             <plugin>

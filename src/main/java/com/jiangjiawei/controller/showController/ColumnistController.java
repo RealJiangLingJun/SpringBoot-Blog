@@ -63,7 +63,7 @@ public class ColumnistController {
         Columnist defaultColumnist = columnistList.get(0);
         model.addAttribute("defaultColumnist",defaultColumnist);
 
-        return "/columnist";
+        return "columnist";
     }
 
 
@@ -145,7 +145,7 @@ public class ColumnistController {
         Columnist defaultColumnist = columnistService.findColumnistByIds(list).get(0);
         model.addAttribute("defaultColumnist",defaultColumnist);
 
-        return "/columnist";
+        return "columnist";
     }
 
 }

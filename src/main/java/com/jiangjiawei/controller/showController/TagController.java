@@ -67,7 +67,7 @@ public class TagController {
         Tag defaultTag = tagList.get(0);
         model.addAttribute("defaultTag",defaultTag);
 
-        return "/tag";
+        return "tag";
     }
 
 
@@ -165,7 +165,7 @@ public class TagController {
         Tag defaultTag = tagService.getTagByIds(list).get(0);
         model.addAttribute("defaultTag",defaultTag);
 
-        return "/tag";
+        return "tag";
     }
 
 }

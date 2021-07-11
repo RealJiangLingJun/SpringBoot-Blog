@@ -18,11 +18,13 @@ public interface BlogService {
 
     List<Blog> getBlogByCondition(Map<String,Object> map);
 
+    List<Blog> findBlogByConditionByPublishdate();
+
     int updateBlog(Blog blog,String state);
 
     int deleteBlog(String id);
 
     List<Blog> getNewBlog(int number);
 
-    int addViews(String blogId);
+    int addViews(String blogId,String ip);
 }

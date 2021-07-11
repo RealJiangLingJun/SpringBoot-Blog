@@ -25,6 +25,9 @@
             用户邮箱：<span th:text="${comment?.getReplyEmail()}"></span>
         </div>
         <div class="ui attached segment">
+            是否为博主：<span th:text="${(comment?.getBloggerState() == '1')?'是':'否'}"></span>
+        </div>
+        <div class="ui attached segment">
             发表时间：<span th:text="${#dates.format(comment?.getPublishDate(),'yyyy-MM-dd HH:mm:ss')}"></span>
         </div>
         <div class="ui bottom attached segment">
